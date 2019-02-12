@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+    body {
+      background: red;
+    }
+    @media print {
+      nav {
+        display: none;
+      }
+
+      [href^="http://"]::after,
+      [href^="https://"]::after {
+        content: "(" attr(href) ")";
+      }
+
+      abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    }
+  </style>
+
+</head>
+<body>
+
+  <abbr title="und so weiter">usw.</abbr>
+
+ <nav>
+  <ul>
+    <li><a href="index.html">Element</a></li>
+    <li><a href="#anker">Element</a></li>
+    <li><a href="http://google.com">Element</a></li>
+    <li><a href="#">Element</a></li>
+    <li><a href="#">Element</a></li>
+    <li><a href="#">Element</a></li>
+  </ul>
+ </nav>
+
+  <p>Lorem ipsum dolor sit <a href="https://google.com">amet</a>, consectetur <a href="http.html">adipisicing</a> elit. Necessitatibus voluptas voluptate saepe ab sapiente unde esse porro, error omnis officia neque veniam deleniti. Quisquam, distinctio ipsum? Numquam saepe nihil ipsam.</p>
+  
+</body>
+</html>

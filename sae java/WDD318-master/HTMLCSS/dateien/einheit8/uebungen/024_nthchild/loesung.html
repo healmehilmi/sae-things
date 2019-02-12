@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>nth-child</title>
+
+	<style>
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			width: 627px;
+			border: 1px solid red;
+		}
+
+		li {
+			flex-basis: 203px;
+			margin-right: 9px;
+			margin-bottom: 9px;
+		}
+
+		li:nth-child(3n) {
+			margin-right: 0;
+		}
+
+		li:nth-last-child(-n+3) {
+			margin-bottom: 0;
+		}
+
+		img {
+			width: 100%;
+			display: block;
+		}
+		
+
+	</style>
+</head>
+<body>
+	
+	<ul>
+		<li><img src="bild.png"></li>
+		<li><img src="bild.png"></li>
+		<li><img src="bild.png"></li>
+		<li><img src="bild.png"></li>
+		<li><img src="bild.png"></li>
+		<li><img src="bild.png"></li>
+	</ul>
+	
+</body>
+</html>

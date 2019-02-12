@@ -1,0 +1,427 @@
+
+
+
+body{
+background-color: #f7f1ea;
+color: #132f63;
+ font-family: 'Raleway', sans-serif;
+}
+h1{
+    position:relative;
+    left: 15%;
+}
+.sidebar {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    
+    box-sizing: border-box;
+    margin: 0 0 24px 24px;
+    padding: 0;
+}
+.accordion {
+    padding: 0;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+    .accordion__item {
+        list-style: none;
+    }
+    .tabs {
+        list-style: none;
+    }
+        .accordion li > h3 {
+            
+            background-color: #ddd;
+            border-bottom: 2px solid #ccc;
+            line-height: 32px;
+            font-size: 16px;
+            text-transform: lowercase;
+            font-variant: small-caps;
+            letter-spacing: 1px;
+            box-sizing: border-box;
+            padding: 0 10px;
+            margin: 0;
+            cursor: pointer;
+        }
+        .accordion__content {
+            font-size: 12px;
+            line-height: 1.5em;
+            overflow: hidden;
+            max-height: 0;
+            box-sizing: border-box;
+            transition: max-height .5s ease-in-out;
+        }
+        .accordion__content > * {
+            padding: 12px;
+        }
+        .accordion__item--open .accordion__content {
+            max-height: 500px;
+            
+    
+            
+        }
+
+        .sticks_ul{
+            list-style: none;
+        }
+        .sticks_ul >li{
+    width: 150px;
+    height: 16px;
+    background-color: red;
+    border: 1px solid black;
+   
+}
+.stickfly{
+    margin-top: 150px;
+}
+.stick1 ,.stick2, .stick3, .stick4, .stick5, .stick6, .stick7{
+    width: 70px;
+    height: 2px;
+    background: rgb(146, 145, 145);
+    margin-top: 10px;
+    position:relative;
+    animation:5s infinite;
+  }
+  
+  
+
+  .stick1{
+  animation-name: example;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  
+  }
+  @keyframes example {
+    0%   {background-color:#132f63 ; left:5px; top:0px;}
+    25%  { left:200px; top:0px;transform: rotate(70deg);}
+    50%  { left:200px; top:200px;}
+    75%  {left:0px; top:200px;}
+    100% {left:0px; top:0px; transform: rotate(30deg);}
+  }
+  .stick2{
+    animation-name: example2;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    }
+    @keyframes example2 {
+      0%   { left:60px; top:3px;transform: rotate(-30deg);}
+      25%  { left:300px; top:10px;}
+      50%  { background-color: #f6554d;;left:500px; top:60px;}
+      75%  { left:50px; top:100px;transform: rotate(32deg);}
+      100% {left:30px; top:70px;}
+    }
+    .stick3{
+        animation-name: example3;
+        animation-duration: 6s;
+        animation-delay: 2s;
+        }
+        @keyframes example3 {
+          0%   { left:52px; top:45px;}
+          25%  {background-color: #f6554d; left:500px; top:60px;transform: rotate(40deg);}
+          50%  {left:500px; top:10px;}
+          75%  {left:32px; top:500px;transform: rotate(98deg);}
+          100% {left:30px; top:65px;transform: rotate(130deg);}
+        }
+        .stick4{
+            animation-name: example4;
+            animation-duration: 7s;
+            animation-delay: 2s;
+            }
+            @keyframes example4 {
+              0%   { left:23px; top:90px;}
+              25%  {background-color:rgb(146, 145, 145); left:200px; top:0px;}
+              50%  {background-color:rgb(146, 145, 145); left:200px; top:200px;transform: rotate(80deg);}
+              75%  {background-color:rgb(146, 145, 145); left:450px; top:200px;}
+              100% {background-color:rgb(146, 145, 145); left:340px; top:0px;transform: rotate(43deg);}
+            }
+            .stick5{
+                animation-name: example5;
+                animation-duration: 8s;
+                animation-delay: 2s;
+                }
+                @keyframes example5 {
+                  0%   { left:0px; top:0px;}
+                  25%  { left:200px; top:0px;transform: rotate(62deg);}
+                  50%  { left:200px; top:200px;transform: rotate(55deg);}
+                  75%  { left:0px; top:200px;}
+                  100% { left:0px; top:0px;transform: rotate(130deg);}
+                }
+                .stick6{
+                    animation-name: example6;
+                    animation-duration: 9s;
+                    animation-delay: 2s;
+                    }
+                    @keyframes example6 {
+                      0%   { left:0px; top:0px;transform: rotate(10deg);}
+                      25%  { left:200px; top:0px;transform: rotate(67deg);}
+                      50%  { left:200px; top:200px;}
+                      75%  { left:0px; top:200px;transform: rotate(133deg);}
+                      100% {left:0px; top:0px;}
+                    }
+                    .stick7{
+                        animation-name: example7;
+                        animation-duration: 10s;
+                        animation-delay: 2s;
+                        }
+                        @keyframes example7 {
+                          0%   { left:0px; top:0px;}
+                          25%  { left:200px; top:0px;transform: rotate(55deg);}
+                          50%  { left:200px; top:200px;}
+                          75%  {left:0px; top:200px;}
+                          100% { left:0px; top:0px;transform: rotate(42deg);}
+                        }
+
+
+                        .stickfly--sessel .stick1  {
+                            animation-name: examplenew1;
+                            animation-duration        : 3s;
+                            animation-delay           : 2s;
+                            animation-iteration-count : 1;
+                            animation-fill-mode       : forwards;
+                            margin-top: 10px;
+                            position:relative;
+                        }
+                            
+                       @keyframes examplenew1 {
+                              10%   {background-color:#132f63 ; left:5px; top:50px;transform: rotate(30deg)}
+
+                              50%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(60deg)}
+
+                              100% {background-color:#8f0606 ;left:10px;top:70px;  ; transform:  rotate(90deg);
+                                }
+                            }
+
+                            .stickfly--sessel .stick2  {
+                                animation-name: examplenew2;
+                                animation-duration        : 3s;
+                                animation-delay           : 2s;
+                                animation-iteration-count : 1;
+                                animation-fill-mode       : forwards;
+                                margin-top: 20px;
+                                position:relative;
+                            }
+                                
+                           @keyframes examplenew2 {
+                                  10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+    
+                                  50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+    
+                                  100% { background-color:#8f0606;left:20px; top:50px; transform: rotate(90deg);}
+                                }
+                                .stickfly--sessel .stick3  {
+                                    animation-name: examplenew3;
+                                    animation-duration        : 3s;
+                                    animation-delay           : 2s;
+                                    animation-iteration-count : 1;
+                                    animation-fill-mode       : forwards;
+                                    margin-top: 20px;
+                                    position:relative;
+                                }
+                                    
+                               @keyframes examplenew3 {
+                                      10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+        
+                                      50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+        
+                                      100% {background-color:#8f0606;left:20px; top:50px; transform: rotate(180deg);width: 100px;
+                                        }
+                                    }
+                                    .stickfly--sessel .stick4  {
+                                        animation-name: examplenew4;
+                                        animation-duration        : 3s;
+                                        animation-delay           : 2s;
+                                        animation-iteration-count : 1;
+                                        animation-fill-mode       : forwards;
+                                        margin-top: 15px;
+                                        margin-left: 5px;
+                                        position:relative;
+                                    }
+                                        
+                                   @keyframes examplenew4 {
+                                          10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+            
+                                          50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+            
+                                          100% {background-color:#8f0606;left:20px; top:50px; transform: rotate(180deg);width: 100px;
+                                            }
+                                        }
+                                        .stickfly--sessel .stick5  {
+                                            animation-name: examplenew5;
+                                            animation-duration        : 3s;
+                                            animation-delay           : 2s;
+                                            animation-iteration-count : 1;
+                                            animation-fill-mode       : forwards;
+                                            margin-top: 15px;
+                                            margin-left: 30px;
+                                            position:relative;
+                                        }
+                                            
+                                       @keyframes examplenew5 {
+                                              10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                
+                                              50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                
+                                              100% {background-color:#8f0606;left:20px; top:50px; transform: rotate(90deg);}
+                                            }
+                                    
+                                            .stickfly--sessel .stick6  {
+                                                animation-name: examplenew6;
+                                                animation-duration        : 3s;
+                                                animation-delay           : 2s;
+                                                animation-iteration-count : 1;
+                                                animation-fill-mode       : forwards;
+                                                margin-top: 15px;
+                                                margin-left: 10px;
+                                                position:relative;
+                                            }
+                                                
+                                           @keyframes examplenew6 {
+                                                  10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                    
+                                                  50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                    
+                                                  100% {background-color:#8f0606 ;left:20px; top:50px; transform: rotate(90deg);}
+                                                }
+                                                .stickfly--sessel .stick7  {
+                                                    animation-name: examplenew7;
+                                                    animation-duration        : 3s;
+                                                    animation-delay           : 2s;
+                                                    animation-iteration-count : 1;
+                                                    animation-fill-mode       : forwards;
+                                                    margin-top: 15px;
+                                                    margin-left: 10px;
+                                                    position:relative;
+                                                }
+                                                    
+                                               @keyframes examplenew7 {
+                                                      10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                        
+                                                      50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                        
+                                                      100% {background-color:#8f0606;left:10px; top:50px; transform: rotate(90deg);}
+                                                    }
+                                
+
+
+
+
+                                                    .stickfly--tisch .stick1  {
+                                                        animation-name: examplenewnew1;
+                                                        animation-duration        : 3s;
+                                                        animation-delay           : 2s;
+                                                        animation-iteration-count : 1;
+                                                        animation-fill-mode       : forwards;
+                                                        margin-top: 20px;
+                                                        position:relative;
+                                                    }
+                                                        
+                                                   @keyframes examplenewnew1 {
+                                                          10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                            
+                                                          50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                            
+                                                          100% { background-color:#8f0606;left:30px; top:50px; transform: rotate(180deg);}
+                                                        }
+                                                        .stickfly--tisch .stick2  {
+                                                            animation-name: examplenewnew2;
+                                                            animation-duration        : 3s;
+                                                            animation-delay           : 2s;
+                                                            animation-iteration-count : 1;
+                                                            animation-fill-mode       : forwards;
+                                                            margin-top: 40px;
+                                                            position:relative;
+                                                        }
+                                                            
+                                                       @keyframes examplenewnew2 {
+                                                              10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                                
+                                                              50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                                
+                                                              100% { background-color:#8f0606;left:20px; top:50px; transform: rotate(180deg);}
+                                                            }
+                                                            .stickfly--tisch .stick3  {
+                                                                animation-name: examplenewnew3;
+                                                                animation-duration        : 3s;
+                                                                animation-delay           : 2s;
+                                                                animation-iteration-count : 1;
+                                                                animation-fill-mode       : forwards;
+                                                                margin-top: -10px;
+                                                                position:relative;
+                                                            }
+                                                                
+                                                           @keyframes examplenewnew3 {
+                                                                  10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                                    
+                                                                  50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                                    
+                                                                  100% { background-color:#8f0606;left:30px; top:50px; transform: rotate(110deg);}
+                                                                }
+                                                                .stickfly--tisch .stick4  {
+                                                                    animation-name: examplenewnew4;
+                                                                    animation-duration        : 3s;
+                                                                    animation-delay           : 2s;
+                                                                    animation-iteration-count : 1;
+                                                                    animation-fill-mode       : forwards;
+                                                                    margin-top: -10px;
+                                                                    position:relative;
+                                                                }
+                                                                    
+                                                               @keyframes examplenewnew4 {
+                                                                      10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                                        
+                                                                      50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                                        
+                                                                      100% { background-color:#8f0606;left:40px; top:50px; transform: rotate(110deg);}
+                                                                    }
+                                                                    
+                                                                    .stickfly--tisch .stick5  {
+                                                                        animation-name: examplenewnew5;
+                                                                        animation-duration        : 3s;
+                                                                        animation-delay           : 2s;
+                                                                        animation-iteration-count : 1;
+                                                                        animation-fill-mode       : forwards;
+                                                                        margin-top: 40px;
+                                                                        position:relative;
+                                                                    }
+                                                                        
+                                                                   @keyframes examplenewnew5 {
+                                                                          10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                                            
+                                                                          50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                                            
+                                                                          100% { background-color:#8f0606;left:40px; top:50px; transform: rotate(90deg);height: 6px;}
+                                                                        }
+                                                                        .stickfly--tisch .stick6  {
+                                                                            animation-name: examplenewnew6;
+                                                                            animation-duration        : 3s;
+                                                                            animation-delay           : 2s;
+                                                                            animation-iteration-count : 1;
+                                                                            animation-fill-mode       : forwards;
+                                                                            margin-top: 0px;
+                                                                            position:relative;
+                                                                        }
+                                                                            
+                                                                       @keyframes examplenewnew6 {
+                                                                              10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                                                
+                                                                              50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                                                
+                                                                              100% { background-color:#8f0606;left:5px; top:50px; transform: rotate(90deg);height: 6px;}
+                                                                            }
+                                                                            .stickfly--tisch .stick7  {
+                                                                                animation-name: examplenewnew7;
+                                                                                animation-duration        : 3s;
+                                                                                animation-delay           : 2s;
+                                                                                animation-iteration-count : 1;
+                                                                                animation-fill-mode       : forwards;
+                                                                                margin-top: -50px;
+                                                                                position:relative;
+                                                                            }
+                                                                                
+                                                                           @keyframes examplenewnew7 {
+                                                                                  10%   {background-color:#132f63 ; left:15px; top:50px;transform: rotate(30deg)}
+                                                    
+                                                                                  50%   {background-color:#132f63 ; left:25px; top:50px;transform: rotate(60deg)}
+                                                    
+                                                                                  100% { background-color:#8f0606;left:30px; top:50px; transform: rotate(180deg);}
+                                                                                }

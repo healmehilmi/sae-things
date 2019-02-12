@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Scroll to top</title>
+	<meta name="description" content="Scroll to top">
+	<meta name="author" content="SitePoint">
+	<style type="text/css">
+		p {
+			line-height: 1.6em;
+			font-size: 24px;
+		}
+		.nav {
+			width: 100%;
+			display: flex;
+			height: 100px;
+			background-color: #ccc;
+			align-items: center;
+			padding: 24px;
+			box-sizing: border-box;
+			transition: height .3s ease-in-out;
+		}
+
+		.state--nav-sticky .nav {
+			position: fixed;
+			top: 0;
+			height: 50px;
+		}
+		.state--nav-sticky .cnt {
+			margin-top: 50px;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body class="">
+
+	<header>Ich bin der Header<br><br><br>grausige brs</header>
+	<nav class="j-nav nav">ICH BIN DIE NAVIGATION BLA BLUBB YAY</nav>
+
+	<div class="cnt">
+		<div id="top">
+
+	<p>Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.</p>
+
+	<p>Cum horribilem walking dead resurgere de crazed sepulcris creaturis, zombie sicut de grave feeding iride et serpens. Pestilentia, shaun ofthe dead scythe animated corpses ipsa screams. Pestilentia est plague haec decaying ambulabat mortuos. Sicut zeder apathetic malus voodoo. Aenean a dolor plan et terror soulless vulnerum contagium accedunt, mortui iam vivam unlife. Qui tardius moveri, brid eof reanimator sed in magna copia sint terribiles undeath legionis. Alii missing oculis aliorum sicut serpere crabs nostram. Putridi braindead odores kill and infect, aere implent left four dead.</p>
+
+	<p>Lucio fulci tremor est dark vivos magna. Expansis creepy arm yof darkness ulnis witchcraft missing carnem armis Kirkman Moore and Adlard caeruleum in locis. Romero morbo Congress amarus in auras. Nihil horum sagittis tincidunt, zombie slack-jawed gelida survival portenta. The unleashed virus est, et iam zombie mortui ambulabunt super terram. Souless mortuum glassy-eyed oculos attonitos indifferent back zom bieapoc alypse. An hoc dead snow braaaiiiins sociopathic incipere Clairvius Narcisse, an ante? Is bello mundi z?</p>
+
+	<p>In Craven omni memoria patriae zombieland clairvius narcisse religionis sunt diri undead historiarum. Golums, zombies unrelenting et Raimi fascinati beheading. Maleficia! Vel cemetery man a modern bursting eyeballs perhsaps morbi. A terrenti flesh contagium. Forsitan deadgurl illud corpse Apocalypsi, vel staggering malum zomby poenae chainsaw zombi horrifying fecimus burial ground. Indeflexus shotgun coup de poudre monstra per plateas currere. Fit de decay nostra carne undead. Poenitentiam violent zom biehig hway agite RE:dead pœnitentiam! Vivens mortua sunt apud nos night of the living dead.</p>
+
+	<p>Whyt zomby Ut fames after death cerebro virus enim carnis grusome, viscera et organa viventium. Sicut spargit virus ad impetum, qui supersumus flesh eating. Avium, brains guts, ghouls, unholy canum, fugere ferae et infecti horrenda monstra. Videmus twenty-eight deformis pale, horrenda daemonum. Panduntur brains portae rotting inferi. Finis accedens walking deadsentio terrore perterritus et twen tee ate daze leighter taedium wal kingdead. The horror, monstra epidemic significant finem. Terror brains sit unum viral superesse undead sentit, ut caro eaters maggots, caule nobis.</p>
+
+		</div>
+
+	</div>
+	<!--<a href="#top">to top</a>-->
+
+	<a href="#" class="j-to-top">to top</a>
+
+	<script>
+
+		////////////////////////
+		//SCORLL TO TOP ANIMIERT 
+		//Interval Handle für die Scroll Animation
+		var scrollanimation;
+
+		//Eventhandler für click auf das a tag
+		document.querySelector('.j-to-top').addEventListener('click', function(_event){
+
+			//das default verhalten das a tags soll nicht ausgeführt werden!
+			_event.preventDefault();
+
+			/* Easinf Function wenn man das ganze smooth animieren möchte
+			var easeInOut = function(t){ 
+				return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t;
+			};
+			*/
+
+			//Dauer der Animation in Sekunden
+			var duration = 1; 
+			//Akutelle Scrollbar position
+			var pos = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			
+			//Schrittweite - Wie viele Pixel Scollen wir pro "Frame" in unserer Animation
+			var step_width = pos / (60 * duration)
+
+			//Starten des Animationsintervals (mit grob 60 "Frames" pro Sekunde)
+			scrollanimation = setInterval(function(){
+
+				//neue Position für diesen Frame berechnen
+				pos = pos - step_width;
+
+				//Wenn pos keiner als 1 ist sind wir am Ende der Animation angelangt
+				if(pos < 1) {
+					//Wir setzen die positions Variable auf exakt 0 weil durch rundungsfehler könnte sie jetzt auch negativ sein
+					pos = 0;
+					//stoppt das Animations Interval. Wichtig sonst läuft das endlos
+					clearInterval(scrollanimation);
+					scrollanimation = null;
+				}
+
+				//wir stezen die scrollposition auf den pos darüber berechneten pos wert
+				//document.querySelector('html').scrollTop = pos;
+				//crossbrowser lösung
+				document.documentElement.scrollTop = document.body.scrollTop = pos;
+
+			}, 1000 / 60); // 1000 / 60 => 60 "frames" pro sekunde 
+
+
+		});
+
+		/////////////////////
+		//Userabbruch der scroll top animation durch rutnerscrollen des users...
+		//variable in der wir uns die vorhergehende scrollposition merken
+		var prev_post = null;
+		//Eventlistener der auf Scrollen reagiert
+		window.addEventListener('scroll', function(){
+			//aktuelle scrollTop position cross browser lösung
+			var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			//wenn wir das erste mal hier rein kommen git es nock keine vorhergehende scrollposition
+			//wir können daher also noch nicht sagen ob rauf oder runter gescroll wird
+			if(prev_post !== null) {
+				//wenn die aktuelle scrollposition größer ist als die vorhergehende
+				//wissen wir das gerade nach unten gescrollt wird
+				if(prev_post < scrollTop) {
+					//der User scrollt offenbar nach unten also brechen wir die Animation
+					//fall sie noch läuft ab
+					if(scrollanimation !== null) {
+						clearInterval(scrollanimation);
+					}
+				}
+			}
+			//die aktuelle scrollposition mekren damit wir beim nächsten aufruf unserer callbackfunktion
+			//ermitteln können in welche richtung gerade gescrollt wird
+			prev_post = scrollTop;
+		});
+
+
+		////////////////
+		//Sticky Nav z.B.: 
+
+		//Eventhandler der auf scrollen reagiert
+		window.addEventListener('scroll', function(){
+			//position ermitteln ab wann die navigation stick werden soll
+			//z.B. hier der abstand zwischen navigation und oberem rand
+			var sticky_pos = document.querySelector('.j-nav').offsetTop;
+
+			//scrolltop position ermitteln funktioniert in den browsern unterschiedlich
+			//darum hier eine lösung die in allen browsern tut
+			var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+
+			//Wenn die scrollposition größer ist als die sticky position
+			if(scrollTop > sticky_pos) {
+				//gibt dem body die klasse state--nav-sticky
+				document.querySelector('body').setAttribute('class','state--nav-sticky');
+			} else {
+				//entferne die klasse wieder
+				document.querySelector('body').setAttribute('class','');
+			}
+		});
+		
+
+	</script>
+</body>
+</html>

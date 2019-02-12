@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Your Website</title>
+		<style>
+			.ticker_item {
+				opacity: 0;
+				transition: opacity 1s ease-in-out;
+			}
+			.ticker_item--fadein {
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="j_ticker_cnt">
+			<!-- Markup für ein Ticker Item
+				<article>
+					<h3></h3><span></span>
+					<div></div>
+				</article>
+			-->
+		</div>
+	</body>
+	<script>
+		window.addEventListener("load", function(event) {
+			
+			//Array aus Objects bei bei jedes Object die Daten für ein News Item enthält
+			var news = [{
+				"title": "Fake News!",
+				"text": "More about the Donald!",
+				"time": "13:15"
+			},{
+				"title": "More Fake News!",
+				"text": "More about the Brexit!",
+				"time": "12:15"
+			},{
+				"title": "Moreest Fake News!",
+				"text": "More about the Putin!",
+				"time": "14:00"
+			}];
+
+
+			console.log(news);
+
+			//Funktion welche die Dom-Nodes für ein Ticker Item erzeugt
+			var generate_news = function(_news){
+				var article = document.createElement('article');
+				var title = document.createElement('h3');
+				title.textContent = _news.title;
+				article.appendChild(title);
+				var time = document.createElement('span');
+				time.textContent = _news.time;
+				article.appendChild(time);
+				var text = document.createElement('div');
+				//innerHTML statt textContent weil dann könnten
+				//in dem Nachtichten Text auch Tags wie <a> drinnen sein.
+				text.innerHTML = _news.text;
+				article.appendChild(text);
+				//CSS Klasse setzen
+				article.setAttribute('class', 'ticker_item');
+				return article;
+			};
+
+			//var erste_news = generate_news(news[0]);
+			//console.log(erste_news);
+
+			//Referenz auf das Ticket CNT-Div in eine Variable Speichern
+			//nach Möglichkeit eher für JS-Hooks eher eigene Klassen verwenden
+			//die nicht zum Stylen verwendet werden
+			var ticker_cnt = document.querySelector('.j_ticker_cnt');
+
+			//var erste_news = generate_news(news[0]);
+			//ticker_cnt.appendChild(erste_news);
+
+
+			//Zählvariable für die Position der Tickeranzeige
+			var i = 0;	
+			//Funktion die das nächste Ticker Item anzeigt
+			var ticker_step = function(){
+				//Tickeranzeige ausleeren 
+				ticker_cnt.innerHTML = "";
+				//Neues Ticker Item erzeugen (das i-te)
+				var a = generate_news(news[i]);
+				//die Dom nodes von dem neuen Ticker-Item in den Tickercontainer einhängen
+				ticker_cnt.appendChild(a);
+				//ein wenig warten bis der Browser Gelegenheit hatte einen Frame zu rendern
+				//damit die fade in Transition dann auch funktioniert
+				setTimeout(function(){
+					//Klasse mit opacity 1 Setzen -> Item wird eingefadet
+					a.setAttribute('class', 'ticker_item ticker_item--fadein');
+				},100);
+				//i++ damit beim nächten Aufruf das nächste Slide angezeigt wird
+				i++;
+				//Wenn i am ende des news Arrays angelangt ist wieder von vorne beginnen
+				if(i === news.length) {
+					i = 0;
+				}
+
+			};
+
+			//Ticker next step Funktion aufrufen
+			//um die Erste news gleich beim Laden der Seite aufzurufen
+			ticker_step();
+
+			//Interval das alle 3 Sekunden die Funktion zum anzeigen
+			//des nächsten slides aufruft
+			setInterval(ticker_step, 3000);
+
+
+		});
+	</script>
+</html>

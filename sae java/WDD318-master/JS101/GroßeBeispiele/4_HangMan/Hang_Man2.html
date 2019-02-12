@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Hangman</title>
+		<link rel="stylesheet" type="text/css" href="res/hangman.css">
+	</head>
+	<body>
+		<h1>Hangman</h1>
+		<div>
+			<div id="counter"></div>
+			<ul id="display"></ul>
+			<ul id="buttons"></ul>
+		</div>
+		<script>
+			window.onload = function(){
+				
+				//Liste aus Wörtern
+				var words = ["house","tree","river","ocean","subway"];
+				
+				//Zufällig ein Wort aus der Liste wählen
+				var word = words[Math.floor(Math.random() * words.length)];
+				
+				//word alles Großbuchstaben 
+				word = word.toUpperCase();
+				
+				//Word sting to wort array umwandeln
+				word = word.split("");
+				console.log(word);
+				
+				//Array zum speichern der bereits geratenen buchstaben
+				var guesses = [];
+				
+				//Funktion welche die Anzeigen aktualisiert
+				var display = function(){
+					
+					//Textausgabe leeren (ul)
+					var display_ul = document.querySelector('#display');
+					display_ul.innerHTML = "";
+					
+					//Steuervariable
+					var finished = true;
+					
+					
+					//Schleife die alle Buchstaben des Wortes durchgeht
+					for(var i = 0; i < word.length; i++) {
+						
+						//li erzeugen
+						var letter_cnt_li = document.createElement('li');
+						
+						//wurde der Buchstabe schon geraten?
+						if(guesses.indexOf(word[i]) !== -1) {
+							//ja schreibe den Buchstaben in das li
+							letter_cnt_li.textContent = word[i];
+						} else {
+							//nein schreibe den Platzhalter - in das li
+							letter_cnt_li.textContent = "-";
+							//Steuervaliable finised auf false setzten weil es noch uneratene Buchstaben gibt
+							finished = false;
+						}
+						
+						//Li in das ul einhängen
+						display_ul.appendChild(letter_cnt_li);
+					}
+					
+					
+					//Verbleinede Versuche 
+					var versuche = 8;
+					
+					//Schleife ermittle wie oft flasch geraden wurde in dem guesses 
+					//durchgegangen wird und bei falschen versuchen versuche um 1 gesenkt wird
+					for(var i = 0; i < guesses.length; i++) {
+						if(word.indexOf(guesses[i]) === -1) {
+							versuche--;
+						}
+					}
+					
+					//Verbleibende Versuche anzeigen
+					
+					//counter #counter selectieren
+					var counter = document.querySelector('#counter');
+					
+					//Sind noch versuche übrig?
+					if(versuche) {
+						//Ja ausgeben wie viele versuche-1 Versuche übrig
+						counter.textContent = (versuche-1) + " Versuche übrig";
+					} else {
+						//Nein GAME OVER ausgeben
+						counter.textContent = "GAME OVER!"
+					}
+					//Background state setzten Klasse state_{versuche}
+					counter.setAttribute("class", "state_" + versuche);
+					
+					//Wenn fertig glöst?
+					if(finished) {
+						
+						//#counter Klasse state_won setzten
+						counter.setAttribute("class", "state_won");
+						
+						//#counter text YAY GEWONNEN! setzen
+						counter.textContent = "YAY GEWONNEN!";
+						
+					}
+					
+					//Wenn fertig oder game over 
+					if(!versuche || finished) {
+						//Tastatur entfernen
+						document.getElementById('buttons').innerHTML = "";
+					}
+					
+										
+				};
+				display();
+				
+				//Tastatur erzeugen
+				
+				var buttons_ul = document.querySelector("#buttons");
+				
+				//26 Tasten
+				for(var i = 0; i < 26; i++) {
+					//li erzeugen
+					var button_li = document.createElement('li');
+					
+					//Buchstabe reinschreiben siehe http://unicode-table.com/
+					var letter = String.fromCharCode(65 + i);
+					var text_txt = document.createTextNode(letter);
+					button_li.appendChild(text_txt);
+					
+					//eventhandler binden
+					button_li.addEventListener('click', function(_e){
+						var selected_letter = _e.target.textContent;
+						guesses.push(selected_letter);
+						console.log(guesses);
+						display();
+					});
+					
+					//Button in das UL einhängen
+					buttons_ul.appendChild(button_li);
+				}
+				
+			};
+		</script>
+	</body>
+</html>

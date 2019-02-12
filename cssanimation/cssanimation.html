@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>cssanimation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="cssanimation.css" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+            <h1>LOGO</h1>
+            <ul class="sidebar">
+                 <li class="accordion__item">
+					<h3>home</h3>
+					<div class="accordion__content"></div>
+                </li>
+                <li class="accordion__item">
+                        <h3>produkte</h3>
+                        <div class="accordion__content">
+                             <ul class="tabs">
+                                <li><a href="#" data-type="sessel">sessel</a> </li>
+                                <li><a href="#" data-type="tisch">tisch</a> </li>
+                                <li><a href="#" data-type="lampe">lampe</a> </li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="accordion__item">
+                        <h3>kontakte</h3>
+                        <div class="accordion__content"></div>
+                        </li>
+             </ul>
+
+
+    <div class="stickfly">
+
+        <div class="stick1"></div>
+        <div class="stick2"></div>
+        <div class="stick3"></div>
+        <div class="stick4"></div>
+        <div class="stick5"></div>
+        <div class="stick6"></div>
+        <div class="stick7"></div>
+    
+    </div>
+    </div>    
+ 
+
+
+    <script>
+
+           
+            var accordion_items = document.querySelectorAll('.accordion__item');
+           
+            for(var i = 0; i < accordion_items.length; i++) {
+          
+                var h3 = accordion_items[i].querySelector('.accordion__item > h3');
+              
+                h3.addEventListener('click', function(_e){
+                   
+                    var accordion_items_of_same_accordion = _e.target.parentNode.parentNode.children;
+                    
+                    for(var i = 0; i < accordion_items_of_same_accordion.length; i++) {
+                       
+                        accordion_items_of_same_accordion[i].classList.remove('accordion__item--open');
+                    }
+                    
+                    _e.target.parentNode.classList.add('accordion__item--open');
+                });
+            }
+            
+            var alle_first_items = document.querySelectorAll('.accordion > .accordion__item:first-child');
+           
+            for(var i = 0; i < alle_first_items.length; i++) {
+                alle_first_items[i].querySelector('h3').dispatchEvent(new Event('click'));
+            }
+    
+
+
+
+
+            var as = document.querySelectorAll('.tabs > li a');
+
+            for( var i = 0; i<as.length;i++){
+
+                as[i].addEventListener('click',function(_e){
+                    _e.preventDefault();
+                    var type = _e.target.getAttribute("data-type");
+                    document.querySelector('.stickfly ').setAttribute("class", "stickfly stickfly--" + type);
+        
+                });
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+    
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

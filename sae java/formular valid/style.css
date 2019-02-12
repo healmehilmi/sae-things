@@ -1,0 +1,76 @@
+.error label  {
+border:solid;
+    color: red;
+
+}
+
+h1{
+    margin-left: 40px;
+    text-transform: uppercase;
+    color: #187371;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form{
+
+    text-align: center;
+}
+
+form input{
+    margin-left: 9em;
+    margin-top: 3em;
+    margin-left: 1em;
+
+}
+
+form label{
+    position: absolute;
+    margin-top: 7px;
+}
+
+ #select{
+    margin-top: 36px;
+ }
+
+
+
+.name-field,
+.email-field{
+    border: #e5e5e5;
+    border-style: solid;
+    border-width: thin;
+    height: 49px;
+    width: 223px;
+}
+
+input{
+    
+  
+    font-family: 'Montserrat', sans-serif;
+    /* font-size: 12px; */
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-top: 6px;
+
+}
+
+
+.submit-button{
+    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    text-shadow: 2px 2px #187371;
+    color: white;
+    background: #25b4b1;
+    border: none;
+     height: 50px;
+    width: 135px;
+}
+#myform{
+text-align: center;
+}
+
+
+
+
+

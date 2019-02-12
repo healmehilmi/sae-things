@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		
+		<div id="content">
+			<!-- 
+				<ul>
+					<li data-nr="1">1</li>
+					<li data-nr="2">2</li>
+					<li data-nr="3">3</li>
+					<li data-nr="4">4</li>
+				</ul>
+			-->
+		</div>
+		
+		<script>
+			window.onload = function(){
+			
+				//erzeuge das oben auskommentierte ul mit den lis via javascript (schleife verwenden!)
+				//ohne innerHTML zu verwenden!
+				
+				//Div selectieren
+				var div = document.querySelector("#content");
+				
+				//ul erzeugen
+				var ul = document.createElement("ul");
+				
+				//variable um die lis zwischenzuspeichern
+				var tmp_li = null;
+				
+				//4 mal
+				for(var i = 1; i < 5; i++) {
+					
+					//li erzeugen und befüllen
+					tmp_li = document.createElement("li");
+					tmp_li.setAttribute("data-nr", i);
+					tmp_li.textContent = i;
+				
+					//li in das ul einhängen
+					ul.appendChild(tmp_li);	
+				}
+
+				//ul in das div einhängen
+				div.appendChild(ul);
+				
+				
+			};
+		</script>
+	</body>
+</html>

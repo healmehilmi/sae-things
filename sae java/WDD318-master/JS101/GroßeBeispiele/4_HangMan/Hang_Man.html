@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Hangman</title>
+		<link rel="stylesheet" type="text/css" href="res/hangman.css">
+	</head>
+	<body>
+		<h1>Hangman</h1>
+		<div>
+			<div id="counter" class="state_8">8</div> <!-- 8-0 | won -->
+			<ul id="display" class="j-display">
+			</ul>
+			<ul id="buttons" class="j-buttons">
+			</ul>
+		</div>
+		<script>
+			window.onload = function(){
+				
+				//Array um zu eratende Wörter zu speichern
+				var words = ["house","cat","dog"];
+				//Zufällig ein Wort aus dem Array auswählen
+				//Math.random() => 0 bis 0.9999999... 
+				//Math.random() *  words.length => 0 bis 2.99999999
+				//Math.floor(Math.random() *  words.length) => 0-2
+				var word = words[ Math.floor(Math.random() *  words.length) ].toUpperCase();
+				//Leeres Array zum Speichern der versuchten Buchstaben
+				var guesses = [];
+				//Referenz auf das ul mit der Klasse .j-buttons das die Tasten der Bildschirmtastatur enthält
+				var buttons = document.querySelector('.j-buttons');
+
+				//Funktion welche die Ausgabe (Bild, Buchstabendisplay ect) aktualisiert
+				var render_state = function(){
+					
+					//Buchstabendisplay update
+
+					//Referenz auf das UL mit dem Buchstabendisplay
+					var display = document.querySelector('.j-display');
+					//Buchstabendisplay ausleeren
+					display.innerHTML = '';
+					//Hilfsvariable mit der wir ermitteln ob der spieler schon gewonnen hat
+					//Wir gehen mal davon aus das ist so und 
+					//wenn wir einen Buchstaben finden der noch nicht erraten wurde setzen wir es auf false
+					var gewonnen = true;
+					//Schleife die alle Buchstaben das zu erratenden Wortes durchgeht
+					for(var i = 0; i < word.length; i++) {
+						//neues li für das Display erzeugen
+						var li = document.createElement('li');
+						//wurde der Bustabe schon erraten ?
+						if(guesses.indexOf(word[i]) === -1) {
+							//nein - daher geben wir '-' aus 
+							li.textContent = '-';
+							//wir setzen gewonnen auf false weil wir jetzt wissen dass es mindestens einen Buchstaben gibt 
+							//der noch nicht erraten wurde
+							gewonnen = false;
+						} else {
+							//der Buchstabe wurder schon erraten darum geben wir ihn im li aus
+							li.textContent = word[i];
+						}
+						
+						//das li in das disbplay ul einhängen
+						display.appendChild(li);
+					}
+
+
+
+					//Hilfsvariabel count mit der wir ermitteln wie viele fehlversuche schon geraten wurden
+					var count = 0;
+					//Schleife die alle Buchstaben die geraten wurden durchgeht
+					for(var i = 0; i < guesses.length; i++) {
+						//Handelt es sich bei dem geraten Buchstaben um einen der nicht im Wort vorkommt
+						if(word.indexOf(guesses[i]) === -1) {
+							//wenn der buchstabe nicht vorkommt (falsch) erhöhen wir die Zählvariable um eins
+							count++;
+						}
+					}
+					//Referenz auf das Dom-Element in dem das Bild und der Text der verbleibenden Versuche ausgegeben wird
+					var counter = document.querySelector('#counter');
+					//Klasse für das Hintergrundbild setzten state_0-8 
+					counter.setAttribute("class", "state_" + (8 - count));
+					//Anzahl der verbleibenden Versuche ausgeben
+					counter.textContent = 8 - count;
+
+					//wenn alle versuche aufgebraucht wurden sind
+					if(count === 8) {
+						//Game over ausgeben
+						counter.textContent = "Game Over!";
+						//die Bildschirmtastatur entfernen
+						buttons.innerHTML = "";
+						//den Eventlistener der auf Hardwaretastatureingaben hört entfernen
+						document.querySelector('body').removeEventListener('keydown', keyboardhandler);
+					}
+
+					//wenn der spieler alle buchstaben erraten hat
+					if(gewonnen === true) {
+						//Das gewonnenbild setzen
+						counter.setAttribute("class", "state_won");
+						//Text ausgeben
+						counter.textContent = "WINNER!";
+						//die Bildschirmtastatur entfernen
+						buttons.innerHTML = "";
+						//den Eventlistener der auf Hardwaretastatureingaben hört entfernen
+						document.querySelector('body').removeEventListener('keydown', keyboardhandler);
+					}
+
+
+				};
+
+				//Initale Ausgabe von Buchstabendisplay ect.
+				render_state();
+
+				//Tastatur erzeugen
+				//Schleife von 65 - 90 => Das sind der ASCII Codes der Buchstaben A-Z
+				for(var i = 65; i < 91; i++) {
+					//neues li für eine Taste erzeugen
+					var li = document.createElement('li');
+					//Buchstabe rein schreiben => String.fromCharCode() erzeugt einen String mit dem Zeichen das den dezimal ASCII code i hat
+					li.textContent = String.fromCharCode( i );
+					//li in das Tastatur ul einhängen
+					buttons.appendChild(li);
+
+					//eventlistener hinzufügen 
+					li.addEventListener("click", function(_e){
+
+						//gedrückten Buchstaben zu den geratenen hinzufügen
+						guesses.push(_e.target.textContent);
+
+						//ausgabe aktualisieren
+						render_state();
+
+					});
+				}
+
+
+				console.log(word);
+
+
+				//Eingabe auch via Tastatur
+				//Handler function in Variable keyboardhandler gespeichert
+				var keyboardhandler = function(_e){
+
+					//wenn die gedrückte Taste einer der Bustaben A-Z ist
+					//String "A-Z" wird mit der "String"-Methode indexOf nach dem gedrückten Buchstaben _e.key durchsucht
+					//_e.key.toUpperCase() => in großbuchstaben umwandeln
+					if("ABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(_e.key.toUpperCase()) !== -1) {
+						//Geratenen Bustaben in das Array guesses speichern mit dem wir uns Rateversuche merken
+						guesses.push(_e.key.toUpperCase());
+						//Ausgbe aktualisieren
+						render_state();
+					}
+				};
+
+				//Eventlistner an das body element binden um auf Tastatureingaben reagieren zu können
+				document.querySelector('body').addEventListener('keydown', keyboardhandler);
+
+								
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//Zufällige ganze Zahl zwischen [0 und 3]
+			var randomNumberA = Math.floor(Math.random() * 4);
+			console.log("Zahl A: " + randomNumberA);
+			var randomNumberB = Math.floor(Math.random() * 4);
+			console.log("Zahl B: " + randomNumberB);
+			
+			//Vergleiche die beiden Zaheln und gib mit console.log() aus
+			//"A ist größer als B" oder "A ist kleiner als B" oder "A ist gleich B";
+			
+			if(randomNumberA > randomNumberB) {
+				console.log("A ist größer als B");
+			} else if (randomNumberA === randomNumberB) {
+				console.log("A ist gleich B");
+			} else {
+				console.log("A ist kleiner als B");	
+			}
+		
+		</script>
+	</body>
+</html>

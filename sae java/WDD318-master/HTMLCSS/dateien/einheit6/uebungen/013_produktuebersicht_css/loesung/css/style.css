@@ -1,0 +1,98 @@
+body {
+	margin: 0;
+
+	font-size: 13px;
+	font-family: Verdana,Helvetica,sans-serif;
+}
+
+h1 {
+	color: #559A03;
+	font-size: 18px;
+
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e2e2e2;
+	margin-bottom: 13px;
+}
+
+h1, h2 {
+	font-family: 'Bitter', serif;
+}
+
+.kombis {
+	padding: 20px;
+}
+
+.kombis_liste {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	display: flex;
+}
+
+.kombis_liste > li {
+	flex: 1;
+	margin-right: 10px;
+}
+
+.kombis_liste li:last-child {
+	margin-right: 0;
+}
+
+.kombis_titel {
+	background: #559A03;
+
+	margin: 0;
+	padding: 10px;
+
+	color: #fff;
+	font-size: 15px;
+}
+
+.kombis_preise {
+	list-style: none;
+	padding: 10px 15px;
+	margin: 0;
+}
+
+.kombis_preis {
+	font-family: 'Bitter', serif;
+	font-size: 16px;
+}
+
+.kombis_preis_zeichen {
+	font-size: 20px;
+}
+
+.kombis_preis_euro {
+	font-size: 26px;
+}
+
+.kombis_preis_cent {
+	font-size: 19px;
+}
+
+.kombis_inhalte {
+	margin: 25px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.kombis_inhalte li {
+	background: #f5f5f5;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.btn {
+	background: #559A03;
+
+	padding: 3px 10px;
+	margin-left: 15px;
+	border-radius: 5px;
+
+	font-family: 'Bitter', serif;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}

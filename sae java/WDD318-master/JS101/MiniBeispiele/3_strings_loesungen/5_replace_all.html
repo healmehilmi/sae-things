@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			
+			var text = "Hallo äm ich äm bin der Tom äm und ich wollte äm nur schnell Hallo äm sagen";
+			console.log(text);
+			
+			//finde alle äm in dem Text und entferne sie in dem sie durch "" ersetzt dann gib den text wieder mit console.log aus
+			
+			
+			
+			//String.replace ersetzt immer nur den ersten Suchtreffer daher mit while so lange aufrufen bis kein äm mehr übrig ist
+			while(text.indexOf("äm") !== -1){
+				text = text.replace("äm","");
+			}
+			console.log(text);
+			
+			
+			
+			
+			
+			//die doppelten leereichen lassen sich auf die gleiche art und weise entfernen
+			while(text.indexOf("  ") !== -1){
+				text = text.replace("  "," ");
+			}
+			console.log(text);
+			
+
+		</script>
+	</body>
+</html>

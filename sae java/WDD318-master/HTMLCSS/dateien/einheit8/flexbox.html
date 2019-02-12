@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      border: 1px solid red;
+      display: flex;
+      /* justify-content: center;
+      justify-content: space-between; */
+      /* justify-content: space-around; */
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    li {
+      border: 1px solid blue;
+      /* flex-basis: 200px;
+      flex-shrink: 0; */
+      flex-grow: 1;
+    }
+
+    .align li:first-child {
+      flex-grow: 3;
+    }
+
+    header {
+      border: 1px solid red;
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .content {
+      border: 1px solid red;
+      display: flex;
+    }
+
+    .text {
+      border: 1px solid red;
+      box-sizing: border-box;
+      flex-basis: 50%;
+      flex-shrink: 0;
+    }
+
+    .wrap {
+      border: 1px solid blue;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .wrap div {
+      flex-basis: 33.3333%;
+      flex-shrink: 0;
+    }
+
+    .column {
+      display: flex;
+      border: 10px solid fuchsia;
+      margin-bottom: 40px;
+      flex-direction: column;
+    }
+
+    .item-1 {
+      order: 3;
+    }
+    .item-2 {
+      order: 1;
+    }
+    .item-4 {
+      order: 2;
+    }
+    .item-3 {
+      order: 4;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <div class="column">
+    <div class="item-1"><a href="#">Element 1</a></div>
+    <div class="item-2"><a href="#">Element 2</a></div>
+    <div class="item-3"><a href="#">Element 3</a></div>
+    <div class="item-4"><a href="#">Element 4</a></div>
+  </div>
+    
+
+  <div class="wrap">
+    <div>Element 1</div>
+    <div>Element 2</div>
+    <div>Element 3</div>
+    <div>Element 4</div>
+  </div>
+
+  <ul>
+    <li>Element 2 asdasd  asdasd asasdasd</li>
+    <li>Element 3</li>
+    <li>Element 4</li>
+    <li>Element 4</li>
+    <li>Element 4</li>
+  </ul>
+
+  <ul class="align">
+    <li>
+      <img src="katze.jpg" />
+    </li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+    <li>Element 4</li>
+    <li>Element 4</li>
+    <li>Element 4</li>
+  </ul>
+
+  <header>
+    <div class="wrapper">
+      <h1>Logo</h1>
+      <button>Button</button>
+    </div>
+    Lorem ipsum dolor sit amet.
+  </header>
+
+  <div class="content">
+    <div class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum cumque culpa libero temporibus deleniti quis nihil praesentium enim suscipit dolore sit accusantium exercitationem, quisquam nam distinctio sequi sed ducimus reiciendis.</div>
+    <div class="text"><button>asdasdas</button> <p>asdasd</p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum cumque culpa libero temporibus deleniti quis nihil praesentium enim suscipit dolore sit accusantium exercitationem, quisquam nam distinctio sequi sed ducimus reiciendis.</div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			window.onload = function(){
+				
+				var str = "i am a text that has only small letters";
+				
+				//wandle den String in ein Array um in dem jeder Buchstabe ein Element ist
+				var arr = str.split("");
+				
+				//finde alle Anfangsbuchstaben und wandle sie in Großbuchstaben um
+				for(var i = 0; i < arr.length; i++) {
+					if(arr[i] === " " ) {
+						arr[i+1] = arr[i+1].toUpperCase();
+					}
+				}
+				arr[0] = arr[0].toUpperCase();
+				
+				//wandle das Array wieder einen String um und gib ihn mit console.log aus
+				console.log(arr.join(""));
+				
+			}
+			
+		</script>
+	</body>
+</html>

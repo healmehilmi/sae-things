@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="" method="get" class="j-form">
+			<input type="text" class="j-input">
+		</form>
+		<script>
+			window.addEventListener('load', function(){
+				/* 
+					TODO
+					schreibe einen enventhandler der sicherstellt 
+					dass in dem textinput nur zahlen eingegeben werden können.
+					Die überprüfung soll bei jedem tastendruck in dem input durchgeführt werden
+					Hint: taucht ein nicht erlaubtes zeichen in dem value string auf
+					muss man es entfernen und den string zurück in das input schreiben.
+				*/
+				
+				//input selektieren und eventhandler hinzufügen
+				document.querySelector('.j-input').addEventListener('keyup', function(_e){
+					//aktuellen inhalt auslesen
+					var cur_text = _e.target.value;
+					//variable mit allen erlaubten zeichen
+					var allowed_chars = "0123456789";
+					//leere variable in die wir nur die erlaubten zeichen übernehmen
+					var out = "";
+					//alle zeichen aus dem input einzeln durchgehen
+					for(var i = 0; i < cur_text.length; i++) {
+						//wenn das i-te zeichen cur_text.charAt(i)
+						//im string allowed_chars vorkommt allowed_chars.indexOf(...) !== -1
+						if(allowed_chars.indexOf(cur_text.charAt(i)) !== -1) {
+							//dann fügen wir es zum den ausgabe string hinzu
+							out += cur_text.charAt(i);
+						}
+					}
+					//text in dem input nur updaten wenn wir etwas weggefiltert haben
+					if(cur_text !== out) {
+						//wert der im input steht mit dem gefilterten überschreiben
+						_e.target.value = out;
+					}
+				});
+			});
+
+		</script>
+	</body>
+</html>

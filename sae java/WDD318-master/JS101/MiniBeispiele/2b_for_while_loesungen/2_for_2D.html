@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//Aufgabe: Schreibe zwei verschachtelte for Schleifen die gemeinsam folgende Zahlen ausgeben:
+			// 1.1 1.2 1.3 2.1 2.2 2.3 3.1 3.2 3.3 4.1 4.2 4.3
+			
+			for(var i = 1; i < 5; i++) {
+				for(var j = 1; j < 4; j++) {
+					console.log(i + "." + j);
+				}
+			}
+
+			//optinale Aufgabe: (schwierig!) Versuche das gleiche Ergebnis mit nur einer for Schleife zu erreichen.
+			
+			//Eine Möglichkeit dafür wäre mit einer divison
+			for(var i = 11; i < 44; i++ ) {
+				console.log(i/10);
+				if(i % 10 === 3) {
+					i += 7;
+				}
+			}
+
+		</script>
+	</body>
+</html>

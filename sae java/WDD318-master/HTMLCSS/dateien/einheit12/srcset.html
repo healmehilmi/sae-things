@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>srcset</title>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 18px;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        img {
+            /* width: 320px; */
+        }
+    </style>
+</head>
+<body>
+    <figure>
+        <img src="img/320.jpeg" srcset="img/320.jpeg 1x, img/640.jpeg 2x, img/960.jpeg 3x" />
+        <figcaption>Eine mehrzeilige Bildunterschrift, die das Bild sehr gut beschreibt</figcaption>
+    </figure>
+</body>
+</html>

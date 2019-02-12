@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Your Website</title>
+		<style>
+			body {
+				font-family: Helvetica, Verdana, Arial, sans-serif;
+			}
+				article {
+					box-sizing: border-box;
+					padding: 24px;
+					max-width: 800px;
+					margin: 0 auto;
+				}
+					h1 {
+						font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+						font-weight: 200;
+						letter-spacing: 0.1em;
+						text-transform: uppercase;
+						font-variant: small-caps;
+					}
+					p {
+						font-size: 13px;
+						line-height: 1.7em;
+						text-align: justify;
+					}
+					.tn_list {
+						list-style: none;
+						display: flex;
+						flex-wrap: wrap;
+						width: 100%;
+						padding: 0;
+						margin: 0;
+						box-sizing: border-box;
+					}
+						.tn_list > li {
+							box-sizing: border-box;
+							padding: 0 12px 12px 0;
+						}
+							.tn_list > li:first-child {
+								padding-left: 0;
+							}
+							.tn_list > li:last-child {
+								padding-right: 0;
+							}
+							.tn_list > li img {
+								height: 70px;
+							}
+				
+				
+				
+				.overlay__cnt {
+					position: fixed;
+					width: 100vw;
+					height: 100vh;
+					top: 0;
+					left: 0;
+					display: flex;
+					background-color: rgba(0,0,0,0.6);
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					color: white;
+				}
+					.overlay__close_on_black {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						z-index: -1;
+					}
+					.overlay__close {
+						position: absolute;
+						top: 8px;
+						right: 8px;
+						width: 40px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						font-size: 30px;
+						cursor: pointer;
+					}
+						.overlay__close:hover {
+							background-color: #ccc;
+						}
+					.overlay__stage {
+						width: 100%;
+						height: calc(100% - 60px);
+						box-sizing: border-box;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						pointer-events: none;
+					}
+					.overlay__stage img {
+						max-width: 90%;
+						max-height: 90%;
+						box-shadow: 0px 0px 24px rgba(0,0,0,0.5);
+						pointer-events: all;
+					}
+					.overlay__nav {
+						display: flex;
+						flex-direction: row;
+						height: 40px;
+						width: 100%;
+						justify-content: center;
+					}
+						.overlay__nav .tn_list {
+							padding: 0 12px;
+							height: 40px;
+						}
+							.overlay__nav .tn_list img {
+								box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+								height: 40px;
+							}
+								.overlay__nav .tn_list img:hover {
+									box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+									outline: 1px solid #aaa;
+								}
+								.overlay__nav li.selected img {
+									outline: 1px solid white;
+								}
+						.overlay__prev, .overlay__next {
+							height: 100%;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							text-align: center;
+							font-size: 24px;
+							cursor: pointer;
+						}
+							.overlay__prev:hover, .overlay__next:hover {
+								font-weight: bold;
+							}
+			
+		</style>
+	</head>
+	<body>
+		<div class="overlay__cnt" style="display: none;">
+			<div class="overlay__close">X</div>
+			<div class="overlay__stage"></div>
+			<div class="overlay__nav">
+				<div class="overlay__prev">&lt;</div>
+				<div class="overlay__tns"></div>
+				<div class="overlay__next">&gt;</div>
+			</div>
+			<div class="overlay__close_on_black"></div>
+		</div>
+		
+		<article>
+			<h1>Title of Page</h1>
+			<p>Cupcake donut jelly beans caramels lollipop cake croissant. Sweet ice cream icing carrot cake lemon drops chocolate cake tiramisu carrot cake. Candy danish fruitcake. Jelly caramels chocolate bar cake sesame snaps jelly-o bear claw. Cake cupcake gummies cheesecake sugar plum sesame snaps icing chupa chups. Candy canes cupcake brownie wafer powder brownie gingerbread soufflé sweet.  Powder powder croissant tootsie roll danish.</p>
+			<p>Toffee soufflé apple pie tootsie roll brownie. Chocolate bar fruitcake donut lemon drops biscuit tootsie roll gummies caramels. Bonbon cupcake dragée cake apple pie marzipan. Marshmallow cake icing. Tart tiramisu sesame snaps fruitcake pie carrot cake pie. Chocolate sesame snaps dessert topping. Oat cake bonbon danish sugar plum.</p>
+			
+			<ul class="tn_list">
+				<li>
+					<a href="img/a.jpg" title="">
+						<img src="img/a_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/b.jpg" title="">
+						<img src="img/b_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/c.jpg" title="">
+						<img src="img/c_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/d.jpg" title="">
+						<img src="img/d_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/e.jpg" title="">
+						<img src="img/e_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/f.jpg" title="">
+						<img src="img/f_tn.jpg">
+					</a>
+				</li>
+			</ul>
+			
+			<p>Brownie liquorice pie jelly beans soufflé. Halvah gummies cotton candy. Cake jelly tootsie roll gummies icing lemon drops carrot cake jelly. Jelly biscuit jelly candy canes pie. Chupa chups bear claw toffee halvah sweet roll cake topping. Pie jelly beans lemon drops icing. Croissant muffin soufflé sesame snaps pie.</p>
+			<p>Brownie liquorice pie jelly beans soufflé. Halvah gummies cotton candy. Cake jelly tootsie roll gummies icing lemon drops carrot cake jelly. Jelly biscuit jelly candy canes pie. Chupa chups bear claw toffee halvah sweet roll cake topping. Pie jelly beans lemon drops icing. Croissant muffin soufflé sesame snaps pie.</p>
+			<ul class="tn_list">
+				<li>
+					<a href="img/1.jpg" title="">
+						<img src="img/1_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/2.jpg" title="">
+						<img src="img/2_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/3.jpg" title="">
+						<img src="img/3_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/4.jpg" title="">
+						<img src="img/4_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/5.jpg" title="">
+						<img src="img/5_tn.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="img/6.jpg" title="">
+						<img src="img/6_tn.jpg">
+					</a>
+				</li>
+			</ul>
+			<p>Brownie liquorice pie jelly beans soufflé. Halvah gummies cotton candy. Cake jelly tootsie roll gummies icing lemon drops carrot cake jelly. Jelly biscuit jelly candy canes pie. Chupa chups bear claw toffee halvah sweet roll cake topping. Pie jelly beans lemon drops icing. Croissant muffin soufflé sesame snaps pie.</p>
+		</article>
+	</body>
+	<script>
+
+		//eine NodeList aller img thumbnails
+		var lis = document.querySelectorAll('.tn_list > li img');
+		console.log(lis);
+
+		//referenz auf den overlay container
+		var overlay = document.querySelector('.overlay__cnt');
+		//referenz auf das container div in den nacher das große bild landet
+		var stage = document.querySelector('.overlay__stage');
+		//close btn
+		var close = document.querySelector('.overlay__close');
+		//div das im overlaycontainer unterhalb aller anderen element liegt
+		//damit wir auch bei klick auf die schwarze Fläche das overlay schließen können
+		var close_on_black = document.querySelector('.overlay__close_on_black');
+
+		//eventhandler zum schließen des overlays
+		close.addEventListener('click', function(){
+			overlay.style.display = "none";
+		});
+		close_on_black.addEventListener('click', function(){
+			overlay.style.display = "none";
+		});
+
+
+		//eventhandler für alle Thumbnails binden
+		//NodeList -> alle einzeln durchgehen und den eventlistener hinzufügen
+		for(var i = 0; i < lis.length; i++) {
+			//dem einzelnen thumbnail den click handler geben
+			lis[i].addEventListener('click', function(_e){
+				//verhinden das der Link des umgebenden a tags aufgerufen wird
+				_e.preventDefault();
+				//das overlay einblenden
+				overlay.style.display = "flex";
+				//ein neues img tag erzeugen für das große bild
+				var img = document.createElement('img');
+				//src für das große bild aus dem a tag auslesen
+				img.setAttribute('src', _e.target.parentNode.getAttribute('href'));
+				//stage ausleeren für den fall dass schon ein bild drin ist
+				stage.innerHTML = "";
+				//das neue bild in die stage einhängen
+				stage.appendChild(img);
+
+
+				//THUMBNAIL LISTE FÜR DAS OVERLAY ERZEUGEN
+
+				//vom angeklickten thumnail aus das zugehörige UL ermitteln
+				var ul = _e.target.parentNode.parentNode.parentNode;
+
+				/* schöner wäre das so weil dann sind wir nicht darauf angewisen dass das markup immer genau so aussieht
+				var closest_with_class = function(_elm, _class){
+					if(_elm.classList.contains(_class)) {
+						return _elm;
+					} else {
+						return closest_with_class(_elm.parentNode, _class);
+					}
+				};
+				var ul = closest_with_class(_e.target, 'tn_list');*/
+
+				
+				//wir geben dem angeklicken li temporär das die classe selected
+				_e.target.parentNode.parentNode.classList.add('selected');
+				//erzeugen ein neues ul für das overlay
+				var tns = document.createElement('ul');
+				//geben ihm die tn_list klasse für das styling
+				tns.classList.add('tn_list');
+				//kopieren das markup aus dem ul das im content steht
+				//und setzen es als HTML in das neue ul
+				//jetzt haben wir eine kopie von dem ul und das angeklickte li hat die klasse selected
+				tns.innerHTML = ul.innerHTML;
+				
+				//dem li mit dem angeklicken thumbnail im content bereich können wir jetzt die klasse selected wieder wegnehmen
+				_e.target.parentNode.parentNode.classList.remove('selected');
+
+				//jetzt leeren wir den container im overlay in den die thumnailliste 
+				//hineinkommt aus
+				document.querySelector('.overlay__tns').innerHTML = "";
+
+				//und fügen unsere neue thumbnailliste hinzu
+				document.querySelector('.overlay__tns').appendChild(tns);
+
+				//wir selektieren alle thumbnail images im overlay
+				var overlay_tns = document.querySelectorAll('.overlay__cnt .tn_list > li img');
+
+				//gehen alle einzeln durch
+				for(var i = 0; i < overlay_tns.length; i++) {
+					//binden einen eventlistener daran 
+					overlay_tns[i].addEventListener('click', function(_e){
+						//vehinden dass das a tag den link aufruft
+						_e.preventDefault();
+						//bei anklicken neues img mit geoßem bild erzeugen genauso wie oben
+						var img = document.createElement('img');
+						img.setAttribute('src', _e.target.parentNode.getAttribute('href'));
+						stage.innerHTML = "";
+						stage.appendChild(img);
+
+						//dem aktuell als selected markieren li die klasse selected entfernen
+						document.querySelector('.overlay__cnt .tn_list > li.selected').classList.remove('selected');
+						//dem li von dem angeklickten img die klasse geben
+						_e.target.parentNode.parentNode.classList.add('selected');
+
+					});
+				}
+			});
+		}
+
+		//next button im overlay click-handler
+		document.querySelector('.overlay__next').addEventListener('click', function(){
+			//das akutell selektierete li
+			var cur = document.querySelector('.overlay__cnt .tn_list > li.selected');
+			//alle lis der thumbnailliste im overlay
+			var overlay_lis = cur.parentNode.children;
+
+			//den index von dem aktuell ausgewählen li herausfinden...
+			//alle durchgehen
+			for(var i = 0; i < overlay_lis.length; i++) {
+				//bist du das selektierte? und auch nicht das letzte?
+				if(i <  overlay_lis.length - 1 && overlay_lis[i].classList.contains('selected') ) {
+					//da wir jetzt den index wissen (i)
+					//können wir jetzt so tun als würde das nächste angeklickt worden
+					//overlay_lis[i+1] ist das nächste li
+					//overlay_lis[i+1].querySelector('img') is das img tag von dem nächsten li
+					//dispatchEvent(EVENT) triggert das event mit JS
+					overlay_lis[i+1].querySelector('img').dispatchEvent(new Event('click'));
+					break;
+				}
+			}
+			//console.log(overlay_lis);
+		});
+
+		//prev button im overlay click-handler
+		//im wesentlichen das gleich wie bei next nur:
+		document.querySelector('.overlay__prev').addEventListener('click', function(){
+			var cur = document.querySelector('.overlay__cnt .tn_list > li.selected');
+			var overlay_lis = cur.parentNode.children;
+			for(var i = 0; i < overlay_lis.length; i++) {
+				//wenn es das li mit der Klasse selected ist und nicht das erste
+				if(i > 0 && overlay_lis[i].classList.contains('selected') ) {
+					//hier jetzt i-1 weil wir das li davor wollen
+					overlay_lis[i-1].querySelector('img').dispatchEvent(new Event('click'));
+					break;
+				}
+			}
+			//console.log(overlay_lis);
+		});
+
+	</script>
+</html>

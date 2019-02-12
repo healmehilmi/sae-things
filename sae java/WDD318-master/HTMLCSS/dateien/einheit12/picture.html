@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Picture</title>
+
+
+    <meta name="viewport" content="width=device-width" />
+
+    <style>
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <picture>
+        <source srcset="img/art3.jpg" media="(min-width: 800px)" />
+        <source srcset="img/art2.jpg" media="(min-width: 520px)" />
+        <img src="img/art1.jpg" />
+    </picture>
+</body>
+</html>

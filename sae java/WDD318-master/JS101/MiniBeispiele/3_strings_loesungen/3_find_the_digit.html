@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//Zufällige Zahl [0-9]
+			var randomNumber = Math.floor(Math.random() * 10);
+			console.log("Zufallsziffer: " + randomNumber);
+			
+			var ziffern = "4,2,7,9,3";
+			
+			//gibt auf der console aus ob die Zufallsziffer randomNumber in dem String ziffern vorkommt oder nicht
+			//Achtung: teste ob es auch bei der 4 funktioniert!
+			
+			if( ziffern.indexOf(randomNumber) !== -1 ) { //auf -1 prüfen weil wenn die 4 gesucht wird returnt indexOf 0 
+				console.log("Ja die Ziffer " + randomNumber + " kommt im String " + ziffern + " vor");
+			} else {
+				console.log("Nein die Ziffer " + randomNumber + " kommt im String " + ziffern + " nicht vor");
+			}
+			
+
+		</script>
+	</body>
+</html>

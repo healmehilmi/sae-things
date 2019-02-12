@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="" method="get" class="j-form">
+			Input: <input type="text" class="j-input"><br>
+			Select: <select class="j-select">
+				<option value="">-- bitte auswählen --</option>
+				<option value="A">A</option>
+				<option value="B">B</option>
+				<option value="C">C</option>
+			</select><br>
+			Checkbox: <input type="checkbox" class="j-checkbox"><br>
+			Text: <textarea class="j-textarea"></textarea><br>
+			<input type="button" class="button j-reset" value="Reset">
+		</form>
+		<script>
+			
+			window.addEventListener('load', function(){
+				
+				/* 
+					 schreibe einen enventhandler für den reset button
+					 der alle Formularfelder ausleert und das select auf bitte auswählen zurück setzt
+				*/
+				
+				//reset btn selektieren 
+				var j_reset = document.querySelector('.j-reset');
+				//event listener hinzufügen
+				j_reset.addEventListener('click', function(){
+					//input mit leersting überschreiben
+					document.querySelector('.j-input').value = '';
+					//selected Index auf die erste option setzen
+					document.querySelector('.j-select').selectedIndex = 0;
+					//checkbox häkchen entfernen
+					document.querySelector('.j-checkbox').checked = false;
+					//textarea mit leersting überschreiben
+					document.querySelector('.j-textarea').value = '';
+				});
+			});
+		</script>
+	</body>
+</html>

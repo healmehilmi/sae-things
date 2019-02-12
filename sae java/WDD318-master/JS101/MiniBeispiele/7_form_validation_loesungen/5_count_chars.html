@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="" method="get" class="j-form">
+			Text: <textarea class="j-textarea"></textarea><br>
+			<div class="j-count"></div>
+		</form>
+		<script>
+			window.addEventListener('load', function(){
+				
+				/* 
+					TODO
+					schreibe einen enventhandler für die textarea
+					welcher wärend des eintippens in dem textfeld 
+					die länge des textes ermittelt und die eingabe 
+					auf 160 Zeichen limitiert. 
+					Werden mehr zeichen eingegebn sollen diese automatisch
+					gelöscht werden.
+					das div j-count soll zu jedem Zeitpunkt die anzahl 
+					der verbleibenden Zeichen beinhalten (also runterzählen wie viel man noch eingeben kann)
+				*/
+				
+				//Eventlistener auf loslassen einer taste an die textarea binden
+				document.querySelector('.j-textarea').addEventListener('keyup', function(_e){
+					//text der aktuell in der textarea steht auslesen
+					var text = _e.target.value;
+					//wenn der text länger als 160 zeichen ist
+					if(text.length > 160) {
+						//auf exakt 160 zeichen kürzen
+						text = text.substr(0,160);
+						//text zurück in die textarea schreiben
+						_e.target.value = text;
+					}
+					//anzahl der verbleibenden zeichen ausgeben
+					document.querySelector('.j-count').textContent = 160 - text.length;
+
+				});
+			});	
+
+		</script>
+	</body>
+</html>

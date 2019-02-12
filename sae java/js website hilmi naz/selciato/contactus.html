@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta lang="EN">
+    <meta name="viewport" content="width=devices-width , initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Scroll to top">
+    <meta name="author" content="SitePoint">
+    <title>SELCIATO</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+    <link rel="stylesheet" href="contactus.css">
+
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="up-nav">
+                <img class="site-logo" src="bilder/logooo.png" alt="">
+
+                <ul class="top-header">
+
+                    <li>
+                        <img src="bilder/search.png" alt="">
+                    </li>
+                    <li>
+                        <a href="#">EN|DE</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="down_nav">
+                <ul class="navilist j-nav j-nav-active">
+                    <li> <a href="main.html">PROJECTS</a></li> 
+							<li>  <a href="aboutus.html">ABOUT US</a></li>
+							<li>  <a href="contactus.html">CONTACT US</a></li>
+							<li>  <a href="#">METERIAL</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <section class="contactus_heading">
+                <h1>Contact Us</h1>
+                <form action="http://www.google.com" method="GET" id="myform">
+                    
+            
+                    <div>
+            
+                        <label for="name">* Name :</label>
+            
+                        <input type="text" name="name" id="name" placeholder="hilmi">
+            
+                    </div>
+            
+                    <div>
+            
+                        <label for="family_name">* Lastname :</label>
+            
+                        <input type="text" name="family_name" id="family_name" placeholder="naz">
+            
+                    </div>
+            
+                    <div>
+            
+                        <label for="email">* Email :</label>
+            
+                        <input type="text" name="email" id="email" placeholder="abc@def.com">
+            
+                    </div>
+            
+                    <div>
+            
+                        <label for="tel"> Tel :</label>
+            
+                        <input type="text" name="tel" id="tel" placeholder="+43 681 81718818">
+            
+                    </div>
+
+                    <div>
+            
+                
+                            <textarea rows="10" cols="40" placeholder="Comments..."></textarea>                
+                        </div>
+                
+            
+                   
+            
+                        
+                    
+                    <div id="error_msg"></div>
+
+                    <input type="submit" value="Send">
+            
+                </form>
+              
+                   
+            
+
+
+        </section>
+
+        <script>
+
+                window.onload = function(){
+        
+        
+        
+                    
+                    document.querySelector('#tel').addEventListener('keyup', function(_event){
+        
+                        var cur_value = _event.target.value;
+        
+        
+                        var bereinigt = "";
+        
+        
+                        var erlaubte_zeichen = "+0123456789";
+        
+        
+        
+        
+                        for(var i = 0; i < cur_value.length; i++) {
+        
+        
+                            var c = cur_value.charAt(i);
+        
+                            if(erlaubte_zeichen.indexOf(c) !== -1) {
+        
+                                bereinigt += c;
+        
+                            }
+        
+                        }
+        
+                        console.log(cur_value);
+        
+                        console.log(bereinigt);
+        
+                        _event.target.value = bereinigt;
+        
+        
+        
+                    });
+        
+                    var myform = document.querySelector('#myform');
+                    myform.addEventListener('submit', function(_event){
+        
+
+        
+                        
+                        var all_fields_ok = true;
+        
+                        var name = document.querySelector('#name').value;
+        
+        
+                        name = name.trim();
+                        if(name !== "" && name.length > 1) {
+        
+                            document.querySelector('#name').parentNode.setAttribute("class","");
+        
+                        } else {
+        
+                            document.querySelector('#name').parentNode.setAttribute("class","error");
+        
+                            all_fields_ok = false;
+        
+                        }
+        
+        
+        
+                        var family_name = document.querySelector('#family_name').value;
+        
+                        family_name = family_name.trim();
+        
+        
+                        if(family_name !== "") {
+        
+                            document.querySelector('#family_name').parentNode.setAttribute("class","");
+        
+                        } else {
+        
+                            document.querySelector('#family_name').parentNode.setAttribute("class","error");
+        
+                            all_fields_ok = false;
+        
+                        }
+        
+        
+        
+                        var email = document.querySelector('#email').value;
+        
+                        email = email.trim();
+        
+        
+                        var email_gueltig = false;
+        
+        
+                        if( email.indexOf('@') !== -1 && email.indexOf('@') !== 0) {
+        
+        
+        
+        
+                            if( (email.indexOf('@') + 3) < email.length ) {
+        
+        
+        
+        
+                                if( email.indexOf('.', email.indexOf('@')) !== -1 ) {
+        
+                                
+        
+                                        email_gueltig = true;
+        
+        
+                                }
+        
+                            }
+        
+                        }
+        
+                        if(email_gueltig) {
+        
+                            document.querySelector('#email').parentNode.setAttribute("class","");
+        
+                        } else {
+        
+                            document.querySelector('#email').parentNode.setAttribute("class","error");
+        
+                            all_fields_ok = false;
+        
+                        }
+        
+        
+        
+        
+        
+                        var tel = document.querySelector('#tel').value;
+        
+                        tel = tel.trim();
+        
+        
+                        var tel_ok = true;
+        
+                        var allowed_char = "+0123456789";
+        
+        
+        
+                        for(var i = 0; i < tel.length; i++) {
+        
+        
+                            if(allowed_char.indexOf(tel.charAt(i)) === -1) {
+        
+                                tel_ok = false;
+        
+                            }
+        
+                        }
+        
+        
+                        if(tel.indexOf('+',1) !== -1) {
+        
+                            tel_ok = false;
+        
+                        }
+        
+        
+        
+                        if(tel_ok) {
+        
+                            document.querySelector('#tel').parentNode.setAttribute("class","");
+        
+                        } else {
+        
+                            document.querySelector('#tel').parentNode.setAttribute("class","error");
+        
+                            all_fields_ok = false;
+        
+                        }
+        
+
+              
+        
+        
+                        
+                        
+                        
+        
+        
+        
+        
+                        
+        
+        
+        
+                    
+        
+        
+                    
+        
+                        if(all_fields_ok === false) {
+        
+                            _event.preventDefault();
+        
+                            document.querySelector('#error_msg').textContent = "Bitte überprüfe deine Formular ";
+        
+                        }
+        
+                        window.addEventListener('scroll', function(){
+			var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			if(prev_post !== null) {
+				
+				if(prev_post < scrollTop) {
+					
+					if(scrollanimation !== null) {
+						clearInterval(scrollanimation);
+					}
+				}
+			}
+			
+			prev_post = scrollTop;
+		});
+		
+		window.addEventListener('scroll', function(){
+			
+			var sticky_pos = document.querySelector('.j-nav').offsetTop;
+			
+			var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			if(scrollTop > sticky_pos) {
+				document.querySelector('body').setAttribute('class','state--nav-sticky');
+			} else {
+				document.querySelector('body').setAttribute('class','');
+			}
+		});
+
+        
+                    });
+        
+        
+        
+                };
+        
+            </script>
+        
+        
+        <footer>
+            <div class="footer">
+                <div class="left_list">
+                    <ul class="left_footer_list">
+                        <li>
+                            <a href="#">JOBS</a>
+                        </li>
+                        <li>
+                            <a href="#">IMPRESSUM</a>
+                        </li>
+                        <li>
+                            <a href="#">FOLLOW US</a>
+                        </li>
+                        <li>
+                            <img src="bilder/pinterest.png" alt="">
+                            <img src="bilder/instagram-2.png" alt=""> </li>
+                    </ul>
+                </div>
+                <div class="right_list">
+
+                    <ul class="right_footer_list">
+
+                        <li>
+                            <img src="bilder/call.png" alt=""> </li>
+                        <li>
+                            <a href="#">+43681817188</a>
+                        </li>
+                        <li>
+                            <img src="bilder/mail.png" alt=""> </li>
+                        <li>
+                            <a href="#">email@selciato.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </footer>
+
+</body>
+
+</html>

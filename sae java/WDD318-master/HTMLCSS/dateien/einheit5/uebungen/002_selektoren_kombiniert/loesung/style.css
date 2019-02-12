@@ -1,0 +1,24 @@
+.highlight {
+	background: #000;
+	color: #fff;
+}
+
+div.highlight {
+	border: 5px solid red;
+}
+
+strong {
+	color: #0F0;
+}
+
+.highlight strong {
+	color: blue;
+}
+
+.indent {
+	margin-left: 20px;
+}
+
+.highlight.indent {
+	margin-left: 40px;
+}

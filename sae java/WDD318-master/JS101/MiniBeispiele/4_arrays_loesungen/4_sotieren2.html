@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			window.onload = function(){
+				
+				var arr = [9,2,5,1,0,4,3];
+				
+				//sortiere das Array in absteigender Reihenfolge und gib es mit console.log aus
+				arr.sort(function(_a,_b){
+					if(_a > _b) {
+						return -1;
+					}	
+					if(_a < _b) {
+						return 1;
+					}
+					return 0;
+				});
+				
+				console.log(arr);
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//generiere mit einer Schleife einen Text mit den Zahlen von 0 bis 100 mit Beistrichen getrennt
+			//also: "0,1,2,3,4,.....98,99,100"
+			var text = "";
+			for(var i = 0; i < 101; i++){
+				if(i) { //vor der 0 kein Beistrich
+					text = text + ",";
+				}
+				text = text + i;
+			}
+			console.log(text);
+
+		</script>
+	</body>
+</html>

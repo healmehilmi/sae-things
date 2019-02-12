@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Your Website</title>
+		<style type="text/css">
+			.error input {
+				border: 1px solid red;
+			}
+			.error label {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+
+		<form action="http://www.google.com" method="GET" id="myform">
+			<div>
+				<label for="name">Vorname:</label>
+				<input type="text" name="name" id="name" placeholder="Max">
+			</div>
+			<div>
+				<label for="family_name">Familienname:</label>
+				<input type="text" name="family_name" id="family_name" placeholder="Muster">
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="text" name="email" id="email" placeholder="test@foo.com">
+			</div>
+			<div>
+				<label for="tel">Tel:</label>
+				<input type="text" name="tel" id="tel" placeholder="+43 699 12345678">
+			</div>
+			<div>
+				<label for="agb">AGB:</label>
+				<input type="checkbox" name="tel" id="agb" value="true">
+			</div>
+
+			<div>
+				<label for="radio1">radio1:</label>
+				<input type="radio" name="radio" id="radio1" value="1">
+				<label for="radio2">radio2:</label>
+				<input type="radio" name="radio" id="radio2" value="2">
+				<label for="radio3">radio3:</label>
+				<input type="radio" name="radio" id="radio3" value="3">
+			</div>
+
+			<div>
+				<label for="select">Dropdown:</label>
+				<select id="select">
+					<option value="">bitte auswählen</option>
+					<option value="X">A</option>
+					<option value="Y">B</option>
+					<option value="Z">C</option>
+				</select>
+			</div>
+
+			<div id="error_msg"></div>
+			<input type="submit" value="Abschicken">
+		</form>
+
+	</body>
+	<script>
+		//warten bis alles geladen ist dann er JS ausführen
+		window.onload = function(){
+
+			/////////////////////
+			//Verhindern dass in das Telefonnummern-Input andere Zeichen als 0-9 und + eingegeben werden
+
+			//das telefoninput selectieren und einen eventhandler für das keyup event hinzufügen
+			document.querySelector('#tel').addEventListener('keyup', function(_event){
+				
+				//akutellen value des inputs auslesen
+				var cur_value = _event.target.value;
+				//einen variable mit einem leeren string erzeugen um das bereinigte value zu speichern
+				var bereinigt = "";
+				//einen string mit allen erlaubten zeichen anlegen
+				var erlaubte_zeichen = "+0123456789";
+
+				//alle zeichen des aktuellen values einzeln druchgehen
+				for(var i = 0; i < cur_value.length; i++) {
+					//den i-ten buchstaben in eine variable speichern
+					var c = cur_value.charAt(i);
+
+					//wenn der i-te buchstabe ein erlaubter ist fügen wir in in den bereinigten string ein
+					if(erlaubte_zeichen.indexOf(c) !== -1) {
+						bereinigt += c;
+					}
+				}
+				console.log(cur_value);
+				console.log(bereinigt);
+
+				//den aktuellen inhalt des inputs mit dem bereinigten string überschreiben
+				_event.target.value = bereinigt;
+
+			});
+
+
+			//Referenz auf das Formular
+			var myform = document.querySelector('#myform');
+			//Eventlistner zum Formular hinzufügen der beim Abschicken ausgeführt wird
+			myform.addEventListener('submit', function(_event){
+				
+				//_event das Event-Object bekommen wir vom Browser als Übergabeparameter
+				//hier stehen alle Informationen zu dem Event drin (Mausposition, auslösendes Element, Gedrückte Taste ect.)
+				//console.log(_event);
+
+				//Wir gehen davon aus dass alle Einhaben im Formular valide sind
+				//Wenn wir etwas nicht Valide ist setzen wir all_fields_ok aus false und
+				//wisen am Ende dass zumindest ein Feld nicht valide ist.
+				var all_fields_ok = true;
+
+
+
+				//Wie holen uns den String der im Vorname Input steht
+				var name = document.querySelector('#name').value;
+				//Leerzeichen vorne und hinten weg schneiden
+				name = name.trim();
+				//Stehen mindestens 2 Zeichen im Feld
+				if(name !== "" && name.length > 1) {
+					//Error Klasse entfernen wenn vorher schon mal gesetzt wurde
+					document.querySelector('#name').parentNode.setAttribute("class","");
+				} else {
+					//Feld nicht valide error Klasse setzen und wir merken uns in all_fields_ok 
+					//dass zumindest ein Feld nicht valide ist
+					document.querySelector('#name').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+				//Analog zu Vorname
+				var family_name = document.querySelector('#family_name').value;
+				family_name = family_name.trim();
+				//Analog zu Vorname hier Überprüfen wir aber nur ob mindestens 1 Zeichen drin steht
+				if(family_name !== "") {
+					document.querySelector('#family_name').parentNode.setAttribute("class","");
+				} else {
+					document.querySelector('#family_name').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+
+
+				//check email
+				var email = document.querySelector('#email').value;
+				email = email.trim();
+
+				//Wir gehen davon aus dass die E-Mail Adresse nicht gültig ist
+				var email_gueltig = false;
+
+				//Steht mindesten ein @ in der email ?: (email.indexOf('@') !== -1)
+				//Und steht keines an der ersten Stelle (email.indexOf('@') !== 0)
+				if( email.indexOf('@') !== -1 && email.indexOf('@') !== 0) {
+
+					//Sind midestens 3 Zeichen nach dem @
+					if( (email.indexOf('@') + 3) < email.length ) {
+
+						//Kommt nach dem @ ein Punkt vot?
+						if( email.indexOf('.', email.indexOf('@')) !== -1 ) {
+							
+							//Kommt nur EIN @ in der email vor ?
+							if( email.indexOf('@', email.indexOf('@') + 1) === -1 ) {
+								
+								//Wenn alle diese Bedingungen erfüllt sind nehmen wir an die E-Mail sit gültig
+								email_gueltig = true;
+
+							}
+						}
+					}
+				}
+				//
+				if(email_gueltig) {
+					document.querySelector('#email').parentNode.setAttribute("class","");
+				} else {
+					document.querySelector('#email').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+
+				var tel = document.querySelector('#tel').value;
+				tel = tel.trim();
+
+
+				//Wir gehen davon aus dass die tel ok ist
+				var tel_ok = true;
+
+				//Erlaubte Zeichen 
+				var allowed_char = "+0123456789";
+				//Mit eine Schleife alle Zeichen der Telefonnummer durchgehen und 
+				//nachsehen ob eins dieser Zeichen nicht in tel vorkommt dann ist die tel sicher nicht valide
+				for(var i = 0; i < tel.length; i++) {
+					//kommt das i-te Zeichen aus tel im String allowed_char nicht vor?
+					if(allowed_char.indexOf(tel.charAt(i)) === -1) {
+						// char not allowed -> tel invalide
+						tel_ok = false;
+					}
+				}
+
+				//das puls darf nur an 1. Stelle vorkommen
+				if(tel.indexOf('+',1) !== -1) {
+					tel_ok = false;
+				}
+
+				if(tel_ok) {
+					document.querySelector('#tel').parentNode.setAttribute("class","");
+				} else {
+					document.querySelector('#tel').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+				//////////
+				//checkbox check
+
+				//refernez auf das dom elemet
+				var agb = document.querySelector('#agb');
+
+				//mit .checked abfragen ob die checkbox angehakt ist
+				if(agb.checked === true) {
+					document.querySelector('#agb').parentNode.setAttribute("class","");
+				} else {
+					document.querySelector('#agb').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+				//////////////
+				//check radios
+
+				//die referenzen auf die radiobuttons die mit dem name="radio" gruppiert sind in eine variable speichern
+				var radios = document.querySelectorAll('input[name="radio"]');
+				console.log(radios);
+
+				//wir gehen davon aus dass keiner ausgeählt ist
+				var radios_ok = false;
+
+				//alle radiobuttons einzeln druchgehen
+				for(var i = 0; i < radios.length; i++) {
+					//überprüfen ob der i-te ausgewält ist
+					if(radios[i].checked === true) {
+						//sobald eines ausgewäht ist setzen wir radio_ok auf true
+						radios_ok = true;
+					}
+				}
+
+				//wenn rradios_ok true ist wissen wir dass ein radio button ausgewält ist
+				if(radios_ok) {
+					document.querySelector('#radio1').parentNode.setAttribute("class","");
+				} else {
+					document.querySelector('#radio1').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+
+				////////////////
+				//check select / dropdown
+				//referenz auf das select tag
+				var select = document.querySelector('#select');
+
+				//mit .selectedIndex können wir den Index der aktuell ausgewählten option auslesen
+				console.log(select.selectedIndex);
+
+				//mit .options bekommen wir alle optionen die zu dem select gehören
+				console.log(select.options[select.selectedIndex]);
+
+				
+				var alle_options_von_dem_select = select.options;
+				var gerade_selectierten_index = select.selectedIndex;
+
+				//die akutell ausgewälte option
+				var referenz_auf_das_selectierte_option_tag = alle_options_von_dem_select[gerade_selectierten_index];
+
+				//if(  select.options[select.selectedIndex].value  !== "" ) { ... in kurz
+				if( referenz_auf_das_selectierte_option_tag.value !== "" ) {
+					//wenn nicht das mit leerem value selectiert ist
+					document.querySelector('#select').parentNode.setAttribute("class","");
+				} else {
+					//wenn das mit leeren value ist selectiert -> error
+					document.querySelector('#select').parentNode.setAttribute("class","error");
+					all_fields_ok = false;
+				}
+
+
+			
+				//Wenn mindestens ein Fehler gefunden wurde einen Fehler ausgeben:
+				if(all_fields_ok === false) {
+					_event.preventDefault();
+					document.querySelector('#error_msg').textContent = "Bitte überprüfe deine Formular Eingaben";
+				}
+
+			});
+
+		};
+	</script>
+</html>

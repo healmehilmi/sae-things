@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wiederholung</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#d71a1a">
+  <meta name="msapplication-TileColor" content="#123456">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="image" content="image.jpg">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="weblog">
+  <meta itemprop="description" content="Beschreibung">
+  <meta itemprop="image" content="image.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="weblog">
+  <meta name="twitter:description" content="Beschreibung">
+  <meta name="twitter:site" content="@sae">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="weblog">
+  <meta name="og:description" content="Beschreibung">
+  <meta name="og:image" content="image.jpg">
+  <meta name="og:url" content="http://sae.at">
+  <meta name="og:site_name" content="webblog">
+  <meta name="og:locale" content="de">
+  <meta name="og:type" content="website">
+
+  <style>
+    h1 {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    h1::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 6px;
+      background: #F0F;
+      position: absolute;
+      right: 0;
+      bottom: 20%;
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: 0.3s cubic-bezier(.59,-0.21,.8,.94);
+    }
+
+    h1:hover::after {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Heading</h1>
+  
+</body>
+</html>

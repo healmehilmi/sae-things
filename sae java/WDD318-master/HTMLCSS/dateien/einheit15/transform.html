@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Selektoren</title>
+
+	<style>
+    div {
+      width: 200px;
+      height: 200px;
+      background: red;
+
+      transform: translateX(200px);
+      transform: translateY(200px);
+      transform: translate(20px, 100px);
+      transform: skewX(20deg);
+      transform: skewY(50deg);
+      transform: skew(50deg);
+      transform: translateX(200px) rotate(45deg);
+      transition: transform 0.4s;
+      /* 
+      transform-origin: bottom left; */
+    }
+
+    div:hover {
+      transform: translateX(200px) rotate(0) scale(2);
+    }
+	</style>
+</head>
+<body>
+
+  <div></div>
+</body>
+</html>

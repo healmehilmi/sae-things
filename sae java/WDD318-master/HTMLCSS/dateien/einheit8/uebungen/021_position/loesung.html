@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Position</title>
+
+	<style>
+
+	.header {
+		border:10px solid red;
+		width:800px;
+		position: relative;
+	}
+
+	.header div {
+		height:80px;
+		width:80px;
+		padding:20px;
+		background: green;
+		color:#fff; 
+	}
+
+	.rechts {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.boxen {
+		position: relative;
+	}
+
+	.box {
+		width:100px;
+		height:100px;
+		position: absolute;
+	}
+
+	.box1 {
+		background: aqua; 
+		top: 40px;
+		left: 40px;
+	}
+	
+	.box2 {
+		background: fuchsia; 
+		top: 90px;
+		left: 90px;
+	}
+	
+	.box3 { 
+		background: gold;
+		top: 140px;
+		left: 140px;
+		z-index: 10;
+	}
+
+	.box4 {
+		background: silver;
+		top: 90px;
+		left: 190px;
+		z-index: 5;
+	}
+	
+	.box5 {
+		background: teal;
+		top: 40px;
+		left: 240px;
+	}
+
+	</style>
+</head>
+<body>
+
+  <div class="header">
+  
+    <div>
+      LINKS
+    </div>
+    
+    <div class="rechts">
+      RECHTS
+    </div>
+  
+  </div> <!-- /.header -->
+  
+  <div class="boxen">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+  </div> <!-- /.boxen -->
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+body {
+	color: #fff;
+	font-family: Arial;
+}
+
+section, aside {
+	min-height: 400px;
+}
+
+section {
+	background: #123456;
+}
+
+aside {
+	background: #ccc;
+}

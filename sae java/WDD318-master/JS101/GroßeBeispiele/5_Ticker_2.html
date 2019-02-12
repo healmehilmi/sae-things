@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Your Website</title>
+		<style>
+			.ticker_cnt {
+				position: relative;
+				width: 300px;
+				height: 300px;
+			}
+				.ticker_item {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0; left: 0;
+					opacity: 0;
+					transition: opacity 1s ease-in-out;
+					background-color: white;
+				}
+				.ticker_item--fadein {
+					opacity: 1;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="j_ticker_cnt ticker_cnt">
+
+		</div>
+		<input type="text" class="j_title_input"><br>
+		<input type="text" class="j_text_input"><br>
+		<input type="text" class="j_time_input"><br>
+		<button class="j_add">Add</button>
+		<button class="j_save">Save</button>
+	</body>
+	<script>
+		window.addEventListener("load", function(event) {
+			
+			//News Items als Objects in einem Array
+			var news = [{
+				"title": "Fake News!",
+				"text": "More about the Donald!",
+				"time": "13:15"
+			}];
+
+			//Ausblick auf Local Storage / Cookies
+			//Wenn in Local Stoarage die news als JSON drin sind?
+			//dann diese verwenden
+			var news_as_json = localStorage.getItem("news");
+			if(news_as_json) {
+				news = JSON.parse(news_as_json);
+			}
+
+
+			console.log(news);
+
+			//Funktion welche die Dom-Nodes für ein Ticker Item erzeugt
+			var generate_news = function(_news){
+				var article = document.createElement('article');
+				var title = document.createElement('h3');
+				title.textContent = _news.title;
+				article.appendChild(title);
+				var time = document.createElement('span');
+				time.textContent = _news.time;
+				article.appendChild(time);
+				var text = document.createElement('div');
+				text.innerHTML = _news.text;
+				article.appendChild(text);
+				article.setAttribute('class', 'ticker_item');
+				return article;
+			};
+
+			//var erste_news = generate_news(news[0]);
+			//console.log(erste_news);
+
+			//Referenz auf das CNT div selektieren
+			var ticker_cnt = document.querySelector('.j_ticker_cnt');
+
+			//var erste_news = generate_news(news[0]);
+			//ticker_cnt.appendChild(erste_news);
+
+			//zählvariable für welches newsitem ist gerade dran
+			var i = 0;
+			//variable in dem wir uns das vorgänger newsitem merken
+			//können um es nach der animation entfernen zu können
+			var last_item = null;
+
+			//funktion zum nächste news anzeigen
+			var ticker_step = function(){
+
+
+				//ticker_cnt.innerHTML = ""; jetzt dürfen wir den 
+				//container nicht mehr einfach ausleeren weil wir ja 
+				//beide elemnte gleichzeitig brauchen um einen übergang
+				//hinzubekommen
+
+				//neues news item erzeugen
+				var a = generate_news(news[i]);
+				//hinzufügem
+				ticker_cnt.appendChild(a);
+				//mit dem hinzufügen der opacity = 1 klassen ein wenig warten
+				//damit die transition auch ausgeführt wird
+				setTimeout(function(){
+					a.setAttribute('class', 'ticker_item ticker_item--fadein');
+				},100);
+				
+				//zählvariable erhöhen für nächten aufruf
+				i++;
+				//cheken dass die variable wieder bei 0 beginnt wenn wir am ende von news[] sind
+				if(i === news.length) {
+					i = 0;
+				}
+
+				//eventlistener hinzufügen der ausgeführt wird 
+				//sobald die fade intransition zu ende ist
+				a.addEventListener('transitionend', function(){
+					//nur wenn es ein forgänger item gibt (beim ersten aufruf gibts keines)
+					if(last_item !== null) {
+						//das vorgängeritem wird nicht mehr benötigt also aus dem dom entfernen
+						ticker_cnt.removeChild(last_item);
+					}
+					//das akutelle item als vorgängeritem für den nächsten aufruf merken
+					last_item = a;
+				});
+
+				
+			};
+
+			//inital gleich ein item anzeigen
+			ticker_step();
+			
+			//im 3 sekunden rythmus das nächte item anzeigen
+			setInterval(ticker_step, 3000);
+
+
+		
+
+			//neue items zum news ticker hinzufügen:
+
+			//add button selektieren und eventlistener hinzufügen
+			var add_btn = document.querySelector('.j_add');
+			add_btn.addEventListener('click', function(_event){
+
+				//die inputs auslesen
+				var title = document.querySelector('.j_title_input').value;
+				var text = document.querySelector('.j_text_input').value;
+				var time = document.querySelector('.j_time_input').value;
+
+				console.log(title, text, time);
+
+				//ein neues news object erzeugen und mit push zu den news array hinzufügen
+				news.push({
+					"title": title,
+					"text": text,
+					"time": time
+				});
+			});
+
+
+			//speichern button um die news in local storage zu speichern
+			//selectieren und eventlistener 
+			var save_btn = document.querySelector('.j_save');
+			save_btn.addEventListener('click', function(){
+				//das news array in einen JSON-String umwandeln
+				var json_daten = JSON.stringify(news);
+				console.log(json_daten);
+				//unter dem Key "news" in local Storage speichern
+				localStorage.setItem("news", json_daten);
+
+			});
+
+		});
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Der grantige Türsteher</title>
+		<link rel="stylesheet" type="text/css" href="res/make_it_look_nicer.css">
+	</head>
+	<body class="fancy_ON">
+		<div>
+			<div id="tuersteher">Hmmm Wos wülst?! </div>
+			<button onclick="reagiereAufDarfIchRein();">Darf ich rein?</button>
+		</div>
+		<script>
+
+			//Zählvariable außerhalb der Event-Handler-Funktion initialsieren
+			var count = 0;
+
+			//Funktion die bei Click auf den Button aufgerufen wird
+			var reagiereAufDarfIchRein = function(){
+
+				//Zählvariable um 1 erhöhen 
+				count = count + 1;
+
+				//Das Türsteher-DIV Selektieren
+				var element = document.getElementById("tuersteher");
+
+				if(count > 5) { //Wenn öfter als 5 mal gedrückt wurde
+					
+					if(count === 6) { //Beim 6. mal 
+						
+						//5 mal NA ausgeben (normal besser mit for-Schleife)
+						var i = 0;
+						do {
+							i = i + 1;
+							element.innerHTML = element.innerHTML + "NA!";
+						} while( i < 5 )
+					}
+
+					//Nach dem sechten mal wird nichts mehr ausgegeben
+
+				} else { //Wenn weniger oft als 6 mal gedrückt wurde
+					if(count % 2 === 1) { //nur bei gerader Anzahl
+						element.innerHTML = element.innerHTML + "<br>GehWEG zum " + count + "en mal!";
+						x = 1;
+					}
+				}
+
+				
+			};
+
+		</script>
+	</body>
+</html>

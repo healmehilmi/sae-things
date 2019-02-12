@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			window.onload = function(){
+				
+				var arr = [
+					9,
+					[2,5,1],
+					[2,5,3,7,5],
+					0,
+					[],
+					[2,1]
+				];
+				
+				//berechne die Summe alle Zahlen des Arrays und gibt sie mit console.log aus
+				
+				var sum = 0;
+				
+				for(var i = 0; i < arr.length; i++) {
+					if(Array.isArray(arr[i])) {
+						//array also nochmal per schleife durchgehen
+						for(var j = 0; j < arr[i].length; j++) {
+							sum = sum + arr[i][j];
+						}
+					} else {
+						//zahl also einfach addieren
+						sum = sum + arr[i];
+					}
+				}
+				
+				console.log(sum);
+				
+				//kann man auch mit einer Rekursion lösen
+				//dann funktioniert es in beliebiger tiefe
+				/*
+				var arr = [
+					9,
+					[2,5,1],
+					[2,5,3,[7,5]],
+					0,
+					[],
+					[2,1]
+				];
+				
+				var sum = 0;
+				var sum_array = function(_a) {
+					for(var i = 0; i < _a.length; i++) {
+						if(Array.isArray(_a[i])) {
+							sum_array(_a[i]);
+						} else {
+							sum += _a[i];
+						}
+					}
+				}
+			
+
+				sum_array(arr);
+
+				console.log(sum);
+				*/
+
+			}
+			
+		</script>
+	</body>
+</html>

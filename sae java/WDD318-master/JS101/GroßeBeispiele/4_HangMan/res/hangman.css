@@ -1,0 +1,134 @@
+body {
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;	
+	min-height: 100%;
+	height: 100%;
+	background-color: #000;
+	color: #ccc;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+	h1 {
+		font-weight: 200;
+	}
+	
+	input {
+		position: absolute;
+		bottom: -30px;
+		left: calc((300px - 120px) / 2);
+		-webkit-appearance: none;
+		border: 1px solid #999;
+		border-radius: 4px;
+		padding: 4px;
+		line-height: 16px;
+		box-sizing: border-box;
+		width: 120px;
+		outline: none;
+		text-align: center;
+	}
+	
+	button {
+		margin-top: 20px;
+		width: 100%;
+		-webkit-appearance: none;
+		background-color: #093f72;
+		border: 2px solid #1b6dcc;
+		color: white;
+		font-size: 16px;
+		border-radius: 6px;
+		cursor: pointer;
+		box-sizing: border-box;
+		padding: 6px;
+		outline: none;
+	}
+	
+	#counter {
+		line-height: 48px;
+		color: black;
+		font-size: 12px;
+		width: 200px;
+		height: 179px;
+		margin: 0 auto;
+		background-image: url('hangman.png');
+		background-size: cover;
+		box-sizing: border-box;
+		padding-right: 22px;
+	}
+		.state_8 { 
+			background-position-x: 0;
+		}
+		.state_7 {
+			background-position-x: calc((100% / 9) * 1);
+		}
+		.state_6 {
+			background-position-x: calc((100% / 9) * 2);
+		}
+		.state_5 {
+			background-position-x: calc((100% / 9) * 3);
+		}
+		.state_4 {
+			background-position-x: calc((100% / 9) * 4);
+		}
+		.state_3 {
+			background-position-x: calc((100% / 9) * 5);
+		}
+		.state_2 {
+			background-position-x: calc((100% / 9) * 6);
+		}
+		.state_1 {
+			background-position-x: calc((100% / 9) * 7);
+		}
+		.state_0 {
+			background-position-x: calc((100% / 9) * 8);
+		}
+		
+		.state_won {
+			background-position-x: calc((100% / 9) * 9);
+		}
+
+	#display {
+		width: 100%;
+		text-align: center;
+		list-style: none;
+		padding: 0;
+		margin: 20px 0;
+	}
+		#display li {
+			width: 36px;
+			height: 40px;
+			margin: 0 4px;
+			line-height: 36px;
+			padding: 0;
+			text-align: center;
+			background-color: #333;
+			border-radius: 6px;
+			border: 2px #555 solid;
+			box-sizing: border-box;
+			display: inline-block;
+		}
+	#buttons {
+		margin: 0 auto;
+		padding: 0;
+		display: block;
+		max-width: 600px;
+	}
+		#buttons li {
+			list-style: none;
+			display: inline-block;
+			width: 50px;
+			margin: 4px;
+			left: 0;
+			-webkit-appearance: none;
+			background-color: #093f72;
+			border: 2px solid #1b6dcc;
+			color: white;
+			font-size: 16px;
+			border-radius: 6px;
+			cursor: pointer;
+			box-sizing: border-box;
+			padding: 6px;
+			outline: none;
+		}

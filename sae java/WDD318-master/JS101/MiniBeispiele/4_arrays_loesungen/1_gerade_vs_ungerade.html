@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			window.onload = function(){
+				
+				//Speichere 3 leere Arrays in Variabeln (zufall, gerade, ungerade)
+				var zufall = [];
+				var gerade = [];
+				var ungerade = [];
+				
+				//Befülle das Array zufall mit 10 zufälligen ganzen Zahlen zwischen 0 und 100 
+				for(var i = 0; i < 10; i++) {
+					var n =  Math.random() * 101; //Zahl zwischen 0 und 100.9999...
+					n = Math.floor(n); //ganze Zahl zwischen 0 und 100
+					zufall.push(n);
+				}
+				
+				//gibt das Array zufall auf der Konsole aus
+				console.log(zufall);
+				
+				//gehe nun alle Zahlen im Array zufall durch und speichere 
+				//die geraden in das gerade Array und die ungeraden in das Array ungerade
+				for( i = 0; i < zufall.length; i++) {
+					if(zufall[i] % 2 === 0) {
+						gerade.push(zufall[i]);
+					} else {
+						ungerade.push(zufall[i]);
+					}
+				}
+				
+				//gib das Array gerade und das Array ungerade aus
+				console.log(gerade);
+				console.log(ungerade);
+				
+			}
+			
+		</script>
+	</body>
+</html>

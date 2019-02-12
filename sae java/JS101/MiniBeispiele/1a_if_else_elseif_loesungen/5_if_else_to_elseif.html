@@ -1,0 +1,40 @@
+ <!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//Zufällige ganze Zahl zwischen [0 und 10]
+			var randomNumber = Math.floor(Math.random() * 11);
+			console.log("Zahl:" + randomNumber);
+			
+			//schreibe unten stehendes if else Kontrukt in eine if elseif else Kontrukt um das dasselbe tut
+			/*
+			
+			if(randomNumber > 3) {
+				if(randomNumber > 5) {
+					console.log("Die Zahl ist größer als 5");
+				} else {
+					console.log("Die Zahl ist kleiner oder gleich 5 aber größer als 3");
+				}
+			} else {
+				console.log("Die Zahl ist kleiner oder gleich 3");
+			}
+			
+			*/
+			
+			
+			if(randomNumber > 5) { 
+				console.log("Die Zahl ist größer als 5");
+			} else if (randomNumber > 3) {
+				console.log("Die Zahl ist kleiner oder gleich 5 aber größer als 3");
+			} else {
+				console.log("Die Zahl ist kleiner oder gleich 3");
+			}
+			
+		
+		</script>
+	</body>
+</html>

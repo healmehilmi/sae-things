@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style>
+			body {
+				font-family: Helvetica, Verdana, Arial, sans-serif;
+			}
+			.slide_box {
+				border: 1px solid #ccc;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+			}
+			ul {
+				height: 100%;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+			}
+			.prev {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: calc(50% - 15px);
+				left: 4px;
+				background-color: #ccc;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 3px;
+				cursor: pointer;
+				z-index: 2;
+			}
+			.next {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: calc(50% - 15px);
+				right: 4px;
+				background-color: #ccc;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 3px;
+				cursor: pointer;
+				z-index: 2;
+			}
+			.slide_list {
+				position: relative;
+				display: flex;
+				white-space: nowrap;
+				height: 100%;
+				left: 0;
+			}
+			.slide_list--transition-on {
+				transition: left .5s ease-in-out;
+			}
+			.page {
+				float: left;
+				flex-grow: 1;
+				height: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: white;
+				font-size: 24px;
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaf4b+0,ff920a+100;Orange+3D+%231 */
+background: rgb(255,175,75); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=1 ); /* IE6-9 */
+			}
+			.radios {
+				padding: 12px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide_box">
+			<div class="prev j-prev">&lt;</div>
+			<ul class="slide_list j-slide_list">
+				<li class="page">PAGE 1</li>
+				<li class="page">PAGE 2</li>
+				<li class="page">PAGE 3</li>
+				<li class="page">PAGE 4</li>
+			</ul>
+			<div class="next j-next">&gt;</div>
+		</div>
+		<div class="radios">
+			<input type="radio" id="autoplay_left" name="auto" class="j-autoplay-left" value="left"><label for="autoplay_left">Auto Play Left</label>
+			<input type="radio" id="autoplay_off" class="j-autoplay-off" name="auto" checked> <label for="autplay_off">Off</label>
+			<input type="radio" id="autoplay_right" class="j-autoplay-right" name="auto" value="right"><label for="autoplay_right">Auto Play Right</label>
+		</div>
+		<script>
+			window.addEventListener('load', function(){
+
+				//Noch nicht Fertig! machen wir am Di!
+
+				var n = document.querySelectorAll('.j-slide_list > li').length;
+				
+				var slide_list = document.querySelector('.j-slide_list');
+
+				slide_list.style.width = (n * 100)+"%";
+
+				var next_slide = function(){
+					
+					slide_list.classList.add('slide_list--transition-on');
+
+					var after_transition = function(){
+						slide_list.classList.remove('slide_list--transition-on');
+						slide_list.style.left = "0";
+						var cur_first_slide = slide_list.removeChild(slide_list.children[0]);
+						slide_list.appendChild(cur_first_slide);
+						slide_list.removeEventListener('transitionend', after_transition);
+					};
+					slide_list.addEventListener('transitionend', after_transition);
+					slide_list.style.left = "-100%";
+					
+				};
+
+				document.querySelector('.j-next').addEventListener('click', next_slide);		
+
+				var prev_slide = function(){
+
+					var cur_last_slide = slide_list.removeChild( slide_list.children[slide_list.children.length - 1] );
+					slide_list.prepend(cur_last_slide);
+					slide_list.style.left = "-100%";
+
+					setTimeout(function(){
+						
+						slide_list.classList.add('slide_list--transition-on');
+						slide_list.style.left = "0";
+						var after_transition = function(){
+							slide_list.classList.remove('slide_list--transition-on');
+							slide_list.removeEventListener('transitionend', after_transition);
+						};
+						slide_list.addEventListener('transitionend', after_transition);
+
+					}, 100);
+
+				};
+
+				document.querySelector('.j-prev').addEventListener('click', prev_slide);
+
+				var slide_interval;
+
+				document.querySelector('.j-autoplay-right').addEventListener('change', function(_e){
+					clearInterval(slide_interval);
+					next_slide();
+					slide_interval = setInterval(next_slide, 3000);
+				});
+
+				document.querySelector('.j-autoplay-left').addEventListener('change', function(_e){
+					clearInterval(slide_interval);
+					prev_slide();
+					slide_interval = setInterval(prev_slide, 3000);
+				});
+				
+				document.querySelector('.j-autoplay-off').addEventListener('change', function(_e){
+					clearInterval(slide_interval);
+				});
+
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+.website{
+   
+    background: white;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+ul{
+    list-style: none;
+}
+h1{
+    display: none;
+}
+.logo{
+    padding-top: 25px;
+    display: flex;
+    justify-content:center;
+   
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding-top: 1em;
+    
+}
+.navi{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-basis: 100%;
+    margin:  0;  
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.headerelemente{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position:  absolute;
+    right: 138px;
+    top: 70px;
+    width: 11em;
+}
+.up-header{
+    background-color: rgba(131, 108, 146, 0.4);
+    position: relative;
+}
+.down-header{
+    background-color: rgba(131, 108, 146, 0.4);
+    position: relative;
+    padding-top: 2em;
+}
+.lang .lang1{
+    background: none;
+    border:none;
+    color: white;
+    
+}
+.navi  :hover{
+background-color:rgba(53, 51, 179, 0.555);
+}
+.contact-container{
+    display: flex;
+    justify-content: space-between;
+
+}
+header{
+    background-image: url(aboutus-bilder/backnew.png);
+    background-size:cover;
+    height:100vh;
+    
+    
+    
+}
+
+.aboutus-text{
+    display:flex;
+    justify-content: center;
+    
+    
+    
+}
+       
+
+.loremipsum{
+    width: 500px;
+    text-align: center;
+    margin-top: 290px;
+    color:black;
+    font-size: 18;
+   font-family: sans-serif;
+    align-items: center;
+    color:rgb(98, 82, 99);
+    
+
+    
+
+ 
+}
+
+
+.footer-first{
+    margin-top: 0;
+    background-color: #7b7e65;
+    height: 200px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    
+}
+.footer-second{
+    margin-top: 0;
+    background-color: #70597e;
+    height: 100px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+

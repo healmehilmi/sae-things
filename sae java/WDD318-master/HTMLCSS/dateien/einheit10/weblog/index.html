@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>weblog</title>
+</head>
+<body>
+
+  <header>
+    <h1>weblog</h1>
+    <nav>
+      <button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" viewBox="0 0 53 53"><path d="M2 13.5h49a2 2 0 0 0 0-4H2a2 2 0 0 0 0 4zM2 28.5h49a2 2 0 0 0 0-4H2a2 2 0 0 0 0 4zM2 43.5h49a2 2 0 0 0 0-4H2a2 2 0 0 0 0 4z"/></svg>
+      </button>
+
+      <!-- ul>li*4>a -->
+      <ul>
+        <li>
+          <a href="#">
+            <img src="assets/images/weblog_logo.svg" width="200" alt="Startseite">
+          </a>
+        </li>
+        <li>
+          <a href="#">Blog</a>
+        </li>
+        <li>
+          <a href="#">Über Uns</a>
+        </li>
+        <li>
+          <a href="#">Kontakt</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div>
+      <!-- .slider>h2+ul>li*3>a>h3+img -->
+      <div class="slider">
+        <h2>Ausgewählte Artikel</h2>
+        <ul>
+          <li>
+            <a href="#">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <img src="assets/images/320/bild1.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <img src="assets/images/320/bild2.jpg" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <h3>Lorem ipsum dolor sit amet.</h3>
+              <img src="assets/images/320/bild3.jpg" alt="">
+            </a>
+          </li>
+        </ul>
+
+        <button>
+          <span>
+            Vorheriges Bild
+          </span>
+        </button>
+
+        <button>
+          <span>
+            Nächstes Bild
+          </span>
+        </button>
+
+        <!-- ul>li*3>a>span{Bild $} -->
+        <ul>
+          <li>
+            <a href="#">
+              <span>Bild 1</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Bild 2</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Bild 3</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- section>h2+div>article -->
+      <section>
+        <h2>Neueste Artikel</h2>
+        <div>
+          <article>
+            <!-- h3+(p>a)+img+p -->
+            <h3>Überall dieselbe alte Leier.</h3>
+            <p>
+              <a href="#">Performance</a>
+            </p>
+
+            <img src="assets/images/320/bild2.jpg" alt="Beschreibung">
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt consectetur, odio adipisci nemo est, facere dolorem, magni tempora minima reiciendis porro iure? Pariatur, itaque eius! Necessitatibus nulla amet illum enim!
+            </p>
+
+            <!-- ul>li*2>svg -->
+            <ul>
+              <li>
+                <svg></svg>
+                <time datetime="30-05-2018">30.05.2018</time>  
+              </li>
+              <li>
+                <svg></svg>
+                <a href="#">5 Kommentare</a>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <button>Mehr laden</button>
+      </section>
+    </div>
+
+    <aside>
+      <!-- div>h2+form>label+input:email -->
+      <div>
+        <h2>Newsletter bestellen</h2>
+        <form action="#">
+          <label for="email">
+            E-Mail
+          </label>
+          <input type="email" id="email">
+
+          <p>Melde Dich an und werde Teil unserer Community.</p>
+
+          <button type="submit">Anmelden</button>
+        </form>
+      </div>
+
+      <!-- div>h2+ul>li*3>h3+(p>a)+img -->
+      <div>
+        <h2>Beliebte Artikel</h2>
+        <ul>
+          <li>
+            <h3>Zwei flinke Boxer jagen die quirlige Eva</h3>
+            <p><a href="#">Software</a></p>
+            <img src="assets/images/thumbs/thumb1.jpg" alt="Was auch immer">
+          </li>
+          <li>
+            <h3>Zwei flinke Boxer</h3>
+            <p><a href="#">Workflow</a></p>
+            <img src="assets/images/thumbs/thumb2.jpg" alt="Was auch immer">
+          </li>
+          <li>
+            <h3>Zwei flinke Boxer jagen die quirlige Eva</h3>
+            <p><a href="#">Software</a></p>
+            <img src="assets/images/thumbs/thumb3.jpg" alt="Was auch immer">
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- footer>.wrapper>div>h2+p -->
+  <footer>
+    <div class="wrapper">
+      <div>
+        <h2>Über weblog</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam blanditiis aliquid repellat sint nemo! At, excepturi aut repudiandae libero iusto, debitis commodi necessitatibus architecto consequatur dolores placeat voluptate ad non.</p>
+      </div>
+
+      <!-- div>h2+ul>li*4>a>svg -->
+      <div>
+        <h2>Weblog in sozialen Medien</h2>
+        <ul>
+          <li>
+            <a href="">
+              <svg></svg>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <svg></svg>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <svg></svg>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <svg></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- div>h2+ul>li*5>a -->
+      <div>
+        <h2>Tags</h2>
+        <ul>
+          <li><a href="#">HTML</a></li>
+          <li><a href="#">Performance</a></li>
+          <li><a href="#">Workflow</a></li>
+          <li><a href="#">Software</a></li>
+          <li><a href="#">CSS</a></li>
+        </ul>
+      </div>
+      <!-- small>a -->
+      <small>
+        &copy; 2018 weblog     
+        Design & Development by <a href="#">WDD 318</a>
+      </small>
+    </div>
+  </footer>
+
+  
+</body>
+</html>

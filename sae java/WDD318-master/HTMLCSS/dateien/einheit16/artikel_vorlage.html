@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mein Blog</title>
+
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-size: 1.8rem;
+      line-height: 1.6;
+      font-family: Helvetica, sans-serif;
+      max-width: 75%;
+      margin: 0 auto;
+    }
+
+    .articles {
+      display: flex;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 0 0 0.5em;
+      line-height: 1.3;
+    }
+
+    article {
+      flex-basis: 33.333%;
+      flex-shrink: 0;
+      flex-grow: 1;
+      padding: 2.4rem 2.4rem 12.4rem 2.4rem;
+      position: relative;
+      transition: transform 0.3s;
+      background: #FFF;
+    }
+
+    article:hover {
+      transform: scale(1.05);
+      z-index: 1000;
+      box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    svg {
+      width: 3rem;
+    }
+
+    path {
+      fill: currentColor;
+    }
+
+    .readmore {
+      display: block;
+      width: 10rem;
+      height: 10rem;
+      background: salmon;
+      color: #fff;
+      padding: 2.4rem 0 0 2.4rem;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .readmore:link,
+    .readmore:visited {
+      color: #fff;
+    }
+
+    .readmore:hover {
+      color: #000;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Mein Blog</h1>
+  <div class="articles">
+    <article>
+      <h2>
+        Heading
+      </h2>
+
+      by
+      <a href="#">Author</a>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui repellendus accusamus. Aut fugit quis blanditiis
+        enim temporibus cumque facere consectetur, distinctio quos sunt laudantium quod ipsa quia sed. Veniam!</p>
+
+      <a href="#" class="readmore">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 31.49 31.49" style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve" role="img" aria-labelledby="title desc">
+          <title id="title">Pfeil</title>
+          <desc id="desc">Blauer Pfeil, der nach rechts zeigt</desc>
+          <path role="presentation" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+        C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+        c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" />
+        </svg>
+      </a>
+    </article>
+    <article>
+      <h2>
+        Heading
+      </h2>
+
+      by
+      <a href="#">Author</a>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui repellendus accusamus. Aut fugit quis blanditiis
+        enim temporibus cumque facere consectetur, distinctio quos sunt laudantium quod ipsa quia sed. Veniam!</p>
+
+      <a href="#" class="readmore">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 31.49 31.49" style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve" role="img" aria-labelledby="title desc">
+          <title id="title">Pfeil</title>
+          <desc id="desc">Blauer Pfeil, der nach rechts zeigt</desc>
+          <path role="presentation" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+        C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+        c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" />
+        </svg>
+      </a>
+    </article>
+    <article>
+      <h2>
+        Lorem ipsum dolor sit amet
+      </h2>
+
+      by
+      <a href="#">Author</a>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui repellendus accusamus. Aut fugit quis blanditiis
+        enim temporibus cumque facere consectetur, distinctio quos sunt laudantium quod ipsa quia sed. Veniam!</p>
+
+      <a href="#" class="readmore">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewBox="0 0 31.49 31.49" style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve" role="img" aria-labelledby="title desc">
+          <title id="title">Pfeil</title>
+          <desc id="desc">Blauer Pfeil, der nach rechts zeigt</desc>
+          <path role="presentation" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+        C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+        c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" />
+        </svg>
+      </a>
+    </article>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>Formular</title>
+</head>
+<body>
+
+	<form action="#">
+		<fieldset>
+			<legend>Logindaten</legend>
+			<div>
+				<label for="user">Benutzername:</label>
+				<input type="text" name="user" id="user" />
+			</div>		
+
+			<div>
+				<label for="password">Passwort:</label>
+				<input type="password" name="password" id="password" />
+			</div>		
+
+			<div>
+				<label for="password_repeat">Passwort wiederholen:</label>
+				<input type="password" name="password_repeat" id="password_repeat" />
+			</div>	
+		</fieldset>	
+
+		<fieldset>
+			<legend>Persönliche Daten</legend>
+			<div>
+				<label for="address">Straße + Hausnummer:</label>
+				<input type="text" name="address" id="address" size="40" />
+			</div>		
+
+			<div>
+				<label for="zip">Postleitzahl:</label>
+				<input type="text" name="zip" id="zip" maxlength="4" size="4" />
+				<span>(z.B.: 1010)</span>
+			</div>		
+
+			<div>
+				<label for="place">Ort:</label>
+				<input type="text" name="place" id="place" />
+			</div>
+
+			<div>
+				<label for="ort">Geburtsdatum:</label>
+				<input type="date" name="ort" id="ort" />
+			</div>
+
+			<div>
+				RaucherIn?<br />
+				<input type="radio" name="smoker" id="smoker_yes" /> 
+				<label for="smoker_yes">Ja</label>
+
+				<br />
+
+				<input type="radio" name="smoker" id="smoker_no" /> 
+				<label for="smoker_no">Nein</label>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>Sonstiges</legend>
+
+			<div>
+				<input type="checkbox" name="save_pwd" id="save_pwd" /> 
+				<label for="save_pwd">Mein Passwort für den nächsten Besuch speichern.</label>
+			</div>
+			<div>
+				<label for="comment">Kommentar</label><br />
+				<textarea name="comment" id="comment" cols="40" rows="10"></textarea>
+			</div>
+		</fieldset>
+
+		<div>
+			<button type="submit">Absenden</button>
+		</div>
+	</form>
+	
+</body>
+</html>

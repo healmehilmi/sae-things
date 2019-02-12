@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//Zufällige ganze Zahl zwischen [0 und 100]
+			var randomNumber = Math.floor(Math.random() * 101);
+			console.log("Zahl:" + randomNumber);
+			
+			//Ermittle mit einem if Konstrukt durch welche zahlen zwischen 2 und 4 die zufällige Zahl ohne Rest teilbar ist
+			
+			
+			//Ohne schleife nur mit if else elseif
+			
+			console.log("Nur mit ifs");
+			
+			if(randomNumber % 2 === 0) {
+				console.log("Die Zahl " + randomNumber + " ist durch 2 teilbar");
+				if(randomNumber % 4 === 0) {
+					console.log("Die Zahl " + randomNumber + " ist durch 4 teilbar");
+				}
+			}
+			if(randomNumber % 3 === 0) {
+				console.log("Die Zahl " + randomNumber + " ist durch 3 teilbar");
+			}
+			
+			
+			
+			
+			//Oder mit Schleife			
+			console.log("Mit for Schleife und einem if");
+
+			for(var i = 2; i < 5; i++) { //alle Zahlen zwischen 2 und 4 durchprobieren
+				if(randomNumber % i === 0) { //Teilbarkeit checken
+					console.log("Die Zahl " + randomNumber + " ist durch " + i + " teilbar");
+				}
+			}
+
+
+		</script>
+	</body>
+</html>

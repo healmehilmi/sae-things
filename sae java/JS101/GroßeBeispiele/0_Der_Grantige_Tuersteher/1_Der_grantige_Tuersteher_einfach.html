@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Der grantige Türsteher</title>
+		<link rel="stylesheet" type="text/css" href="res/make_it_look_nicer.css">
+	</head>
+	<body class="fancy_ON">
+		<div>
+			<div id="tuersteher">Hmmm Wos wülst?!</div>
+			<button onclick="reagiereAufDarfIchRein();">Darf ich rein?</button>
+		</div>
+		<script>
+			
+			//Zählvariable außerhalb des function scopes der Funktion reagiereAufDarfIchRein deklariert
+			//Stände var xmal = 0; innerhab würde es bei jedem Aufruf auf 0 gesetzt werden! Aber wir wollen ja hochzählen darum außerhalb
+			var xmal = 0;
+			
+			//Click Handler - Funktion die oben im HTML als Event-Handler für onlick im button tag verwendet wird
+			var reagiereAufDarfIchRein = function() {
+				
+				//Hochzählen: Zum aktuellen Wert der Variable 1 addieren und dann wieder in die Variable speichern
+				xmal = xmal + 1;
+				
+				//xmal in der Konsole ausgeben
+				console.log(xmal);
+				
+				if(xmal < 4) { //So lang xmal keiner 4 ist also in summe 3 mal
+					//wir nemen den Inhalt des DOM-Elements (innerHTML) und hängen "<br>NA!" dran und schreiben es zurück in das DOM-Element
+					document.getElementById("tuersteher").innerHTML = document.getElementById("tuersteher").innerHTML + "<br>NA!";
+				} else if(xmal === 4) { 
+					//a += b; ist die Kurzschreibweise von a = a + b;
+					document.getElementById("tuersteher").innerHTML += "<br>NA! - Jetzt reits aber!";
+				} else if(xmal < 10) {
+					document.getElementById("tuersteher").innerHTML += "<br>Na! zum " + xmal + "-ten mal";
+				} else {
+					//Nach dem 9ten mal sagt er nix mehr
+				}
+			};
+			
+		</script>
+	</body>
+</html>

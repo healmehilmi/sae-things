@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 62.5% von 16px sind 10px */
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  font-family: 'OpenSans';
+}
+
+img {
+  display: block;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/OpenSans-Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../fonts/OpenSans-Bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*
+  Layout
+*/
+
+@media (min-width: 768px) {
+  .section {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1130px) {
+  .section {
+    padding: 0;
+  }
+}
+
+.site__content {
+  margin: 0 auto;
+  max-width: 76.8rem;
+
+}
+
+@media (min-width: 1130px) {
+  .site__content {
+    max-width: 1070px;  
+    display: flex;
+  }
+
+  .site__content__aside {
+    flex: 1 0 330px;
+    margin-left: 6rem;
+  }
+}
+
+/*
+  Layout
+*/
+@media (min-width: 768px) {
+  .latest-articles {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .latest-articles__item {
+    flex: 0 0 320px;
+  }
+}
+
+/*
+  Navigation
+*/
+
+.nav-main {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  border: 1px solid red;
+}
+
+.nav-main__items {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-main__item:nth-child(n+2) {
+  display: none;
+}
+
+.nav-main__button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.nav-main__button svg {
+  fill: #37505c;
+}
+
+/* .nav-main__item:not(:first-child) {
+  display: none;
+} */
+
+/* 
+.nav-main__item {
+  display: none;
+}
+
+.nav-main__item:first-child {
+  display: block;
+} */
+
+
+@media (min-width: 768px) {
+  .nav-main {
+    display: block;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .nav-main__items {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .nav-main__item:nth-child(n+2) {
+    display: block;
+  }
+
+  .nav-main__item:first-child {
+    margin-right: auto;
+  }
+
+  .nav-main__button {
+    display: none;
+  }
+}
+
+@media (min-width: 1070px) {
+  .nav-main__items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-main__item:first-child {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/*
+  Slider
+*/
+
+.slider__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: auto;
+}
+
+.slider__item {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slider__item img {
+  width: 100%;
+}
+
+.slider__item__heading {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+}
+
+.slider__dots {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.slider__dot {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 1px solid #f76f8e;
+  margin: 0 0.5rem;
+}
+
+.slider__dot:hover,
+.slider__dot--active {
+  background-color: #f76f8e;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider__button {
+  position: absolute;
+  top: 50%;
+  background: #fff;
+  height: 9rem;
+  width: 6rem;
+  transform: translateY(-50%);
+}
+
+.slider__button--prev {
+  left: 20px;
+}
+
+.slider__button--next {
+  right: 20px;
+}
+
+
+/*
+  HELPERS
+*/
+
+.visually-hidden {
+  /* Remove the item from normal flow */
+  position: absolute;
+  /* Workaround for falsely pronounced, smushed text */
+  white-space: nowrap;
+  /* Set it to the smallest possible size (some screen readers ignore elements with zero height and width) */
+  width: 1px;
+  height: 1px;
+  /* Hide overflowing content after resizing */
+  overflow: hidden;
+  /* Reset any property that may change the elements size */
+  border: 0;
+  padding: 0;
+  /* Clipping defines what part of an element should be displayed. */
+  /* Deprecated clip property for older browsers */
+  clip: rect(0 0 0 0);
+  /* clip-path for newer browsers. inset(50%) defines an inset rectangle that makes the content disappear.  */
+  clip-path: inset(50%); 
+    /* It seems like at the moment nobody is quite sure why margin: -1px is there. On top of that it seems to cause issues (see: https://github.com/h5bp/html5-boilerplate/issues/1985). */
+  margin: -1px;
+}

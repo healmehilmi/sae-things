@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="" method="get" class="j-form">
+			<div class="j-output"></div>
+			<ul>
+				<li>A <input value="1" type="checkbox"></li>
+				<li>B <input value="2" type="checkbox"></li>
+				<li>C <input value="3" type="checkbox"></li>
+			</ul>
+		</form>
+		<script>
+			
+			window.addEventListener('load', function(){
+				
+				/* 
+					binde einen eventlistener an die checkboxen 
+					der beim anklicken einer checkbox in j-output 
+					die values der angehakten durch beistriche getrennt schreibt.
+					Sind also A und C angehakt soll in dem div der text 1,3 drin stehen
+				*/
+				
+				
+				//alle checkboxen von dem formular selektieren und als NodeList speichern
+				var checkboxen = document.querySelectorAll('.j-form input[type="checkbox"]');
+				//mit einer schleife alle durchgehen
+				for(var i = 0; i < checkboxen.length; i++) {
+					//den eventhandler an jedes einzelnen binden
+					checkboxen[i].addEventListener('click', function(){
+						//Array für die ausgabe
+						var out = [];
+						//alle checkboxen durchgehen
+						for(var j = 0; j < checkboxen.length; j++) {
+							//wenn die checkbox angehakt ist 
+							if(checkboxen[j].checked) {
+								//das value auslesen und in das out array hinzufügen
+								out.push(checkboxen[j].value);
+							}
+						}
+						//das out array in einen durch , getrennten String umwandeln -> out.join(',')
+						//als textContent in das ausgabediv schreiben
+						document.querySelector('.j-output').textContent = out.join(',');
+					});
+				}
+
+			});
+		</script>
+	</body>
+</html>

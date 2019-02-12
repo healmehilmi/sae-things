@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<title>Media Queries</title>
+
+	<style>
+		
+		div {
+			outline: 1px solid red;
+			min-height: 100px;
+		}
+
+		@media screen and (min-width: 600px) {
+			main {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			div {
+				flex-grow: 1;
+				flex-basis: 50%;
+			}
+		}		
+
+		@media screen and (min-width: 800px) {
+			
+			div {
+				flex-basis: 33.3%;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<main>
+		<div>
+			BOX 1
+		</div>	
+		<div>
+			BOX 2
+		</div>	
+		<div>
+			BOX 3
+		</div>
+	</main>	
+
+</body>
+</html>

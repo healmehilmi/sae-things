@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Wetter Prophet</title>
+		<link rel="stylesheet" type="text/css" href="res/make_it_look_nicer.css">
+	</head>
+	<body class="fancy_ON">
+		<div class="background"></div>
+		<h1>Wetter Prophet</h1>
+		<button class="anzeigen_button">Anzeigen</button>
+		<div id="predictions">
+						
+			<!--
+			Sinn dieser Übung ist es mit document.createElement document.setAttribute elm.appendChild umgehen zu lernen
+			Darum generieren wir das unten stehen auskommentiere Markup komplett via Javascirpt auch wenn innerHTML schneller gehen würde
+			
+			<div class="prediction">
+				<h2>Dienstag</h2>
+				<figure class="perdiction">
+					<img src="res/sonnig.png">
+					Sonnig
+				</figure>
+				<span class="temperature">12° C</span>
+				<ul class="list_of_3">
+					<li>10° C</li>
+					<li>12° C</li>
+					<li>9° C</li>
+				</ul>
+			</div>
+			
+		-->
+		</div>
+		<script>
+			
+			//Die Funktion wird erst aufgerufen wennn das Event onload des Fensters feuert
+			//Dies stellt sicher, dass bereits alles geladen ist bevor wir weiteren JS-Code ausführen 
+			window.onload = function(){
+				
+				//die möglichen Wetterzustände in ein Array gespeichert
+				var wetter = ["sonnig","bewölkt","gewitter","regen"];
+				
+				//die Wochentage in einem Array 
+				var tage = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
+				
+				//ein Date Object mit dem heutigen Datum erzeugen
+				var heute = new Date();
+				
+				
+				//unsere Funktion die eine Vorhersage generiert
+				var generateVorhersage = function(){	
+					var div = document.createElement('div');
+					div.setAttribute('class','prediction');
+
+					var h2 = document.createElement ('h2');
+					
+				};
+				
+				//Alternative zu onclick="..." direkt im html tag
+				//Erst wird holen wir uns mit document.querySelector(".anzeigen_button") die Referenz zu dem Buttonelement
+				//Dann wird mit .addEventListener("click", generateVorhersage); die Eventhandlerfunktion für das event onclick hinzugefügt
+				document.querySelector(".anzeigen_button").addEventListener("click",generateVorhersage);
+			};
+			
+		</script>
+	</body>
+</html>

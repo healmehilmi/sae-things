@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="" method="get" class="j-form">
+			<div class="j-output"></div>
+			<ul>
+				<li>A <input value="1" type="checkbox"></li>
+				<li>B <input value="2" type="checkbox"></li>
+				<li>C <input value="3" type="checkbox"></li>
+			</ul>
+		</form>
+		<script>
+			
+			window.addEventListener('load', function(){
+				
+				/* 
+					binde einen eventlistener an die checkboxen 
+					der beim anklicken einer checkbox sicher stellt dass maximal 2
+					der drei checkboxen angehakt sind!
+					Sind bereits 2 angehakt muss also das neue 3 häkchen vom js wieder entfernt werden
+				*/
+				var checkboxen = document.querySelectorAll('.j-form input[type="checkbox"]');
+				//mit einer schleife alle durchgehen
+				for(var i = 0; i < checkboxen.length; i++) {
+					//den eventhandler an jedes einzelnen binden
+					checkboxen[i].addEventListener('click', function(_e){
+						//ermitteln wie viel gerade angehakt sind
+						//count variable zum zählen
+						var count = 0;
+						//alle checkboxen durchgehen
+						for(var j = 0; j < checkboxen.length; j++) {
+							//wenn angehakt
+							if(checkboxen[j].checked) {
+								//eins dazu zählen
+								count++;
+							}
+						}
+						//wenn mehr als 2 angehakt sind
+						if(count > 2) {
+							//die aktuell geklickte checkbox abhaken
+							_e.target.checked = false;
+						}
+					});
+				}
+
+				
+			});
+		</script>
+	</body>
+</html>

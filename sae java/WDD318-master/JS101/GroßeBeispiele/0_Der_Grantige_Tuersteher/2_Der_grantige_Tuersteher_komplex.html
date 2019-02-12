@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Der grantige Türsteher</title>
+		<link rel="stylesheet" type="text/css" href="res/make_it_look_nicer.css">
+	</head>
+	<body class="fancy_ON"><!-- remove class fancy_ON to deactivate styling -->
+		<h1>Der grantige Türsteher</h1>
+		<div>
+			<div id="tuersteher">Hmmm - Wos wüüst?</div>
+			<button onclick="reagiereAufDarfIchRein();">Darf ich hier rein?</button>
+		</div>
+		<script> 
+			//Scripttag immer unter dem Content weil dann kann der Content oberhalb schon mal ausgegeben werden. 
+			//Es sei den man möchte mit dem Content etwas tun bevor er Ausgegeben wird
+			
+			
+			//Zählvariable außerhalb des function scopes der Funktion reagiereAufDarfIchRein deklariert
+			//Stände var xmal = 0; innerhab würde es bei jedem Aufruf auf 0 gesetzt werden! Aber wir wollen ja hochzählen darum außerhalb
+			var xmal = 0;
+			
+			//usere Funktion say hängt Text an den bestehenden Inhalt des DOM-Elements mit der id="tuersteher" an
+			var say = function(_text) {
+				document.getElementById('tuersteher').innerHTML += _text; //Zusatzinfo: a += b ist die Kurzschreibweise für a = a + b;
+			};
+			
+			//Click Handler - Funktion die oben im HTML als Event-Handler für onlick im button tag verwendet wird
+			function reagiereAufDarfIchRein() {
+				
+				//Hochzählen: Addiert zu dem Wert der gerade in xmal steht 1 dazu und weist es xmal als neuen Wert zu
+				//Zusatzinfo: Kurzschreibweise xmal += 1; oder noch kürzer xmal++;
+				xmal = xmal + 1;
+				
+				//Ausdruck zu debugzwecken in die Logconsole schreiben
+				console.log(xmal);
+				
+				if(xmal === 3) { //wenn genau xmal 2 ist
+					say("<br>Fix NA! hob I gsogt!");
+				} else if( xmal === 7) { //wenn genau xmal 7 ist
+					say("<br>Jetzt reichts aber!");
+				} else if( xmal === 12) { //wenn genau xmal 12 ist
+					say("<br>"); //Neue Zeile
+					for(var i = 0; i < 5; i++) { //5 Mal NA! ausgeben
+						say("NA! ");
+					}
+					say("<br> und nocheinmal NA!");
+				} else if( xmal > 7) { //wenn xmal größer als 7 ist - Zusatzinfo: 12 wäre auch größer als 7 aber da greift schon else if(xmal === 12) weil es weiter oben steht!
+					//Dann sagt er erst mal nix mehr
+				} else if( xmal > 3) { //wenn xmal größer als 3 ist - Zusatzinfo: würde das oberhalb von else if( xmal > 7) stehen würde if(xmal > 7) nie ausgeführt werden
+					say("<br>NA! Zum " + xmal + "-ten mal!");
+				} else {
+					say("<br>NA!");	
+				}			
+			}
+		</script>
+	</body>
+</html>

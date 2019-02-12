@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Your Website</title>
+		<style>
+			.gallery {
+				background-color: #000;
+				width: 404px;
+				box-sizing: border-box;
+				border: 1px solid #000;
+			}
+			.gallery_list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				width: 400px;
+				display: flex;
+			}
+			.gallery_list li {
+				opacity: 0.5;
+				cursor: pointer;
+			}
+			.gallery_list li:hover {
+				opacity: 1;
+			}
+			.gallery_stage {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 400px;
+				height: 400px;
+			}
+			.gallery_stage img {
+				max-width: 90%;
+				max-height: 90%;
+			}
+			.gallery_list img {
+				width: 100%;
+				height: auto;
+				box-sizing: border-box;
+			}
+			body {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="gallery">
+			<div class="gallery_stage">
+				<img src="1.jpg">
+			</div>
+			<ul class="gallery_list">
+				<li>
+					<img src="1_tn.jpg">
+				</li>
+				<li>
+					<img src="2_tn.jpg">
+				</li>
+				<li>
+					<img src="3_tn.jpg">
+				</li>
+				<li>
+					<img src="4_tn.jpg">
+				</li>
+				<li>
+					<img src="5_tn.jpg">
+				</li>
+				<li>
+					<img src="6_tn.jpg">
+				</li>
+			</ul>
+		</div>
+		<input type="checkbox" id="onHover"> <label for="onHover">switch on hover</label>
+	</body>
+	<script>
+
+		//alle thumbnail images selektieren und als NodeList in die Variable tns speichern
+		var tns = document.querySelectorAll('.gallery_list > li > img');
+		console.log(tns);
+
+		//Funktion für die Eventhandler die ein Bild anzeigt 
+		var change_image = function(_e){
+			console.log(_e);
+			//if(document.querySelector('#onHover').checked === true || _e.type === 'click') {
+				//scr aus dem geklickten oder gehoverten thumbnail img tag auslesen
+				var tn_src = _e.target.getAttribute('src');
+				//aus der url von dem thumnail die url für das große bild ermitteln
+				tn_src = tn_src.replace('_tn.jpg','.jpg');
+				//das src attribut des großen bildes setzen
+				document.querySelector('.gallery_stage > img').setAttribute('src', tn_src);
+			//}
+		};
+
+		//schleife um die eventhandler für die einzelenn thumbnails zu setzen
+		for(var i = 0; i < tns.length; i++) {
+			//click handler als callback wird hier die oben definierte funktion übergeben
+			tns[i].addEventListener('click', change_image);
+			//mouseenter handler
+			tns[i].addEventListener('mouseenter',function(_e){
+				//ermitteln ob im augenblick das häkchen in der checkbox gesetzt ist?
+				if(document.querySelector('#onHover').checked === true) {
+					//wenn ja den Eventhandler aufrufen (eventobject mit übergeben damit in change_image _e.target verwendet werden kann )
+					change_image(_e);
+				}
+			});
+		} 
+		
+
+	</script>
+</html>

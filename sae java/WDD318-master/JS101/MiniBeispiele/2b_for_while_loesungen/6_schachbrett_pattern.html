@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			var output = "";
+
+			/*
+
+			optinal Aufgabe: (sehr schwierig)  
+			Erzeuge mit 2 for-Schleifen folgendes Schachbrett Muster:
+			Es werden nur folgende Strings dafür benötigt: "-" "#" "+" und output um alles zusammenzufügen. 
+
+			+ABCDEFGH
+			8-#-#-#-#
+			7#-#-#-#-
+			6-#-#-#-#
+			5#-#-#-#-
+			4-#-#-#-#
+			3#-#-#-#-
+			2-#-#-#-#
+			1#-#-#-#-
+
+			Hint: 
+				String.fromCharCode(65) === 'A'
+				String.fromCharCode(66) === 'B'
+			*/
+
+			for(var i = 0; i < 9; i++) {
+				for(var j = 0; j < 9; j++) {
+					if(i === 0 && j === 0) {
+						output += "+";
+					} else if(i === 0) {
+						output += String.fromCharCode(64 + j);
+					} else if(j === 0) {
+						output += 9 - i;
+					} else {
+						if((j+i) % 2 === 0) {
+							output += "-";
+						} else {
+							output += "#";
+						}
+					}
+				}
+				output += "\n";
+			}
+			
+
+
+			console.log(output);
+
+		</script>
+	</body>
+</html>

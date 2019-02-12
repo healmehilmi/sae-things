@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wiederholung</title>
+
+  <style>
+    p {
+      background-color: #0000FF;
+      color: #fff;
+    }
+    
+    .danger {
+      background-color: #FF0000;
+    }
+
+    div.danger {
+      background-color: #000000;
+    }
+
+    .danger .danger {
+      background-color: #FF00FF;
+      color: #000000;
+    }
+
+    p .danger {
+      font-size: 10px;
+    }
+
+    p em.danger {
+
+    }
+    
+    p em .danger {
+
+    }
+
+    /* p.danger {
+      font-size: 20px;
+    } */
+    
+    /* .danger p {
+      font-size: 40px;
+    } */
+  </style>
+</head>
+<body>
+
+
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+  <p class="danger">Lorem ipsum, <span class="danger">dolor</span> sit amet consectetur adipisicing elit.</p>
+  
+  <p class="danger">Lorem ipsum, <em class="danger">dolor</em> sit amet consectetur adipisicing elit.</p>
+  
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+  
+  <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</div>
+  
+  <div class="danger">Lorem ipsum, <span class="danger">dolor</span> sit amet consectetur adipisicing elit.</div>
+  
+</body>
+</html>

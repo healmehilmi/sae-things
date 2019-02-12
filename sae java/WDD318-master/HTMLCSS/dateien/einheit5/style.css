@@ -1,0 +1,14 @@
+p {
+  color: #FF0000;
+  font-size: 20px;
+}
+
+.highlight {
+  color: #FF00FF;
+  color: rgb(255, 0, 0);
+  color: rgba(255, 0, 0, 1);
+}
+
+#green {
+  color: #00FF00;
+}

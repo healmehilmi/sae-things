@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		
+		<div id="content"></div>
+		
+		<script>
+			window.onload = function(){
+			
+				//erzeuge ein p tag befülle es mit dem Text Hallo Welt und hänge es als Child in das div mit der id content  
+				//ohne innerHTML zu verwenden!
+				
+				
+				var div = document.querySelector("#content");
+				
+				var p = document.createElement("p");
+				p.textContent = "Hallo Welt";
+				div.appendChild(p); 
+				
+				
+			};
+		</script>
+	</body>
+</html>

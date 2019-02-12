@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Position</title>
+
+	<style>
+
+		.wrapper {
+			border: 10px solid red;
+			margin: 50px;
+			width: 600px;
+			padding: 40px;
+		}
+
+		div {
+			width: 100px;
+			height: 100px;
+			position: relative;
+		}
+
+		.eins {
+			background: green;
+			top: 0;
+			left: 0;
+			z-index: 2;
+		}
+
+		.zwei {
+			background: red;
+			top: -50px;
+			left: 50px;
+			z-index: 3;
+		}
+
+		.drei {
+			background: blue;
+			top: -125px;
+			left: 75px;
+			z-index: 1;
+		}
+
+	</style>
+</head>
+<body>
+
+	<section class="wrapper">
+		<div class="eins"></div>
+		<div class="zwei"></div>
+		<div class="drei"></div>
+	</section>
+	
+	
+</body>
+</html>

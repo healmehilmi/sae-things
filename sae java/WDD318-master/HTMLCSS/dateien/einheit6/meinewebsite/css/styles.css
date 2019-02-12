@@ -1,0 +1,77 @@
+/*
+#######################
+## Allgemeines
+## Rosa: #be3777
+## Blau: #1e495b
+## Grau: #444444
+#######################
+*/
+
+
+
+/*
+#######################
+## ❤️ Globale Styles ⛑
+#######################
+*/
+
+
+a:link {
+  color: #be3777;
+}
+
+a:visited {
+  color: #64183b;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  color: #FF0000;
+}
+
+/*
+#################
+## SITE
+#################
+*/
+
+.site {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #444444;
+}
+
+.site-header {
+  background-color: #1e495b;
+  /* padding-top: 20px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+
+  padding: 20px 40px 30px 10px;
+  padding: 20px 40px 10px;
+  padding: 20px 40px;
+  padding: 20px; */
+
+  padding: 20px 30px 14px;
+}
+
+.site-heading {
+  margin: 0;
+  font-size: 34px;
+  font-style: italic;
+}
+
+.site-heading a:link,
+.site-heading a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.site-content {
+  padding: 20px 30px;
+}

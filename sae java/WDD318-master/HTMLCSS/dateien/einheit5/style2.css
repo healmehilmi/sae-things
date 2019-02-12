@@ -1,0 +1,75 @@
+body {
+  background: red;
+}
+
+#heading {
+  color: green;
+}
+
+.heading {
+  color: blue;
+}
+
+h2 {
+  color: red;
+}
+
+#heading {
+  color: fuchsia;
+}
+
+li {
+  color: blue;
+}
+
+ol li {
+  font-size: 20px;
+}
+
+strong {
+  background-color: green;
+}
+
+div strong {
+  background-color: black;
+  color: #fff;
+}
+
+.rahmen {
+  border: 10px dotted aqua;
+}
+
+.rahmen strong {
+  background-color: aqua;
+}
+
+div strong {
+  background-color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p.rahmen {
+  border-style: solid;
+}
+
+p .rahmen {
+  border-style: solid;
+}
+
+h1,
+h2, 
+h3 {
+  color: red;
+}

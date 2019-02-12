@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+.website{
+   
+    background: white;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+ul{
+    list-style: none;
+}
+h1{
+    display: none;
+}
+.logo{
+    padding-top: 25px;
+    display: flex;
+    justify-content:center;
+   
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding-top: 1em;
+    
+}
+.navi{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-basis: 100%;
+    margin:  0;  
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.headerelemente{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    position:  absolute;
+    right: 138px;
+    top: 70px;
+    width: 11em;
+}
+.up-header{
+    background-color: rgba(131, 108, 146, 0.4);
+    position: relative;
+}
+.down-header{
+    background-color: rgba(131, 108, 146, 0.4);
+    position: relative;
+    padding-top: 2em;
+}
+.lang .lang1{
+    background: none;
+    border:none;
+    color: white;
+    
+}
+.navi  :hover{
+background-color:rgba(53, 51, 179, 0.555);
+}
+.contact-container{
+    display: flex;
+    justify-content: space-between;
+
+}
+header{
+    background-image: url(contact-bilder/backcontact.png)
+    
+    
+}
+.site-content{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.contact-text{
+
+    align-items: center;
+    border: #741212;
+    background-color:#a5a999;
+    border-style: none;
+    border-width: thin;
+    height: 30%;
+    width: 36%;
+   
+        
+        color: #ffffff;
+        font-family: 'Open Sans', sans-serif;
+        
+        text-align: center;
+        font-size: 14px;
+        max-width: 494px;
+        margin: 93px auto;
+       
+}
+iframe{
+    max-width: 500px;
+    max-height: 500px;
+ 
+    border-style: none;
+    border-width: thin;
+    height: 42%;
+    width: 47%;
+    border: 16;
+    margin: 64px auto;
+}
+.second-footer{
+background-image: url(bilder/footer2.png);
+background-size: cover;
+height:13vh;
+position: relative;
+}
+.second-footerelements{
+   
+    position: relative;
+    top: 30px;
+}
+
+.footer-first{
+    margin-top: 0;
+    background-color: #7b7e65;
+    height: 200px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    
+    
+    
+}
+.footer-second{
+    margin-top: 0;
+    background-color: #70597e;
+    height: 100px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    
+}
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		
+		<div id="content">
+			<!--
+				Ich bin ein text vor dem div
+				<div>Ich bin ein text in dem div</div>
+				Ich bin ein text nach dem div
+			-->
+		</div>
+		
+		<script>
+			window.onload = function(){
+			
+				//erzeuge die oben auskommentierte Struktur aus Text und div mit Text
+				//ohne innerHTML zu verwenden!
+				
+				
+				//Äußerses div selektieren
+				var outer_div = document.querySelector("#content");
+				
+				//Text vor dem div können wir noch mit textContent setzen weil sonst noch nichts in dem Element drin ist
+				outer_div.textContent = "Ich bin ein text vor dem div";
+				
+				//Div erzeugen und Text zuweisen
+				var inner_div = document.createElement("div");
+				inner_div.textContent = "Ich bin ein text in dem div";
+				
+				//inners div in das äußere div hängen
+				outer_div.appendChild(inner_div);
+				
+				//Textelement erzeugen.
+				var text_nach_div = document.createTextNode("Ich bin ein text nach dem div");
+				
+				//Textelement in das äußere div hängen
+				outer_div.appendChild(text_nach_div);
+				
+			};
+		</script>
+	</body>
+</html>

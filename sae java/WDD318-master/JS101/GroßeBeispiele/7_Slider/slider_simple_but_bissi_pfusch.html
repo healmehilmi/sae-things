@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title></title>
+		<style>
+			body {
+				font-family: Helvetica, Verdana, Arial, sans-serif;
+			}
+			.slide_box {
+				border: 1px solid #ccc;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+			}
+			ul {
+				height: 100%;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+			}
+			.prev {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: calc(50% - 15px);
+				left: 4px;
+				background-color: #ccc;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 3px;
+				cursor: pointer;
+				z-index: 2;
+			}
+			.next {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: calc(50% - 15px);
+				right: 4px;
+				background-color: #ccc;
+				line-height: 30px;
+				text-align: center;
+				border-radius: 3px;
+				cursor: pointer;
+				z-index: 2;
+			}
+			.slide_list {
+				position: relative;
+				display: flex;
+				white-space: nowrap;
+				height: 100%;
+				left: 0;
+				transition: left .5s ease-in-out;
+			}
+			.page {
+				float: left;
+				width: 100%;
+				height: 300px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: white;
+				font-size: 24px;
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaf4b+0,ff920a+100;Orange+3D+%231 */
+background: rgb(255,175,75); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(255,175,75,1) 0%,rgba(255,146,10,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a',GradientType=1 ); /* IE6-9 */
+			}
+			.radios {
+				padding: 12px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slide_box">
+			<div class="prev j-prev">&lt;</div>
+			<ul class="slide_list j-slide_list">
+				<li class="page">PAGE 1</li>
+				<li class="page">PAGE 2</li>
+				<li class="page">PAGE 3</li>
+				<li class="page">PAGE 4</li>
+			</ul>
+			<div class="next j-next">&gt;</div>
+		</div>
+		<script>
+			//Wenn alles fertig geladen ist
+			window.addEventListener('load', function(){
+
+				//Anzahl der Slides im Slider ermittlen
+				var n = document.querySelectorAll('.j-slide_list > li').length;
+
+				//Referenz auf das UL das die Slides enhält in eine Variabel speichern
+				var slide_list = document.querySelector('.j-slide_list');
+
+				//Das UL auf die 100% * Anzahl der Slides setzen (=> "inline Style")
+				slide_list.style.width = (n * 100)+"%";
+
+				//Next Btn Selektieren und click handler
+				document.querySelector('.j-next').addEventListener('click', function(){
+
+					//Akutelle left offset auslesen z.B.: -200% 
+					//und als Integer parsen
+					var offset = parseInt(slide_list.style.left);
+					//am anfag steht noch nichts drinnen dann bekommen wir hier NaN
+					if(isNaN(offset)) {
+						//wenn offset also NaN setzen wir es auf 0 damit wir damit rechnen können
+						offset = 0;
+					}
+
+					//der offset für das nächste Slide ist um 100% kleiner also -100
+					offset = offset - 100; 
+
+					//wenn offset -100 mal anzahl der Slides ist 
+					//wären wir schon ein slide über das Ziel hinausgeschossen
+					if(offset === -100 * n) {
+						//daher springen wir in dem fall auf das erste Slide zutück in dem wir das offset auf 0 setzen
+						offset = 0;
+					}
+					//console.log(offset);
+
+					//Das neue left offset als "inline Style" % Zahl setzen. 
+					slide_list.style.left = offset + "%";
+				});
+
+				//Prev Btn Selektieren und click handler
+				document.querySelector('.j-prev').addEventListener('click', function(){
+
+					//Akutelle left offset auslesen z.B.: -200% 
+					//und als Integer parsen
+					var offset = parseInt(slide_list.style.left);
+
+					//am anfag steht noch nichts drinnen dann bekommen wir hier NaN
+					if(isNaN(offset)) {
+						//wenn offset also NaN setzen wir es auf 0 damit wir damit rechnen können
+						offset = 0;
+					}
+
+					//der offset für das nächste Slide ist um 100% größer also + 100
+					offset = offset + 100; 
+
+					//Wenn wir über den Anfang hinaus geschossen sind
+					if(offset > 99) {
+						//gehen wir zum letzten slide
+						offset = (n-1) * - 100;
+					}
+					
+					//Das neue left offset als "inline Style" % Zahl setzen. 
+					slide_list.style.left = offset + "%";
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+.login {
+  padding: 30px;
+  margin: 20px;
+  font-size: 18px;
+}
+
+body {
+  background: aqua;
+}
+
+
+@media (min-width: 500px) {
+  .login {
+    font-size: 20px;  
+  }
+
+  body {
+    background: red;
+  }
+}
+
+
+@media screen and (min-width: 200px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 400px)  {
+  body {
+    font-size: 20px;
+  }
+}
+
+@media (orientation: landscape)  {
+  body {
+    font-size: 20px;
+  }
+}

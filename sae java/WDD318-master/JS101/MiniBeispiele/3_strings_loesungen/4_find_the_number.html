@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<script>
+			
+			//Zufällige Zahl [0-20]
+			var randomNumber = Math.floor(Math.random() * 21);
+			console.log("ZufallsZahl: " + randomNumber);
+			
+			var ziffern = "14,2,20,9,0,15";
+			
+			//gibt auf der console aus ob die ZufallsZahl randomNumber in dem String aus Beistrich getrennten Zahlen vorkommt oder nicht
+			//Achtung die Zahl 5 soll z.B. als kommt nicht vor ausgegeben werden! Die 15 aber schon. 
+			
+			
+	
+	
+	
+	
+			
+			//Es gibt wie imemr auch hier mehrer Möglichkeiten. Eine Variante die nur mit Strings auskommt wäre diese:			
+			if( ("," + ziffern + ",").indexOf("," + randomNumber + ",") !== -1 ) {
+				console.log("Ja die Zahl " + randomNumber + " kommt im String " + ziffern + " vor");
+			} else {
+				console.log("Nein die Zahl " + randomNumber + " kommt im String " + ziffern + " nicht vor");
+			}
+			
+			
+			
+			
+			//Eine kompliziertere Lösung auch nur mit Strings und eine for Schleife
+			var num = "";
+			for(var i = 0; i < ziffern.length; i++) {
+				if(ziffern.charAt(i) !== ",") {
+					num = num + ziffern.charAt(i); //wenn der character kein Beistrich ist füge ihn zu num hinzu
+				} else {
+					//wenn die character ein Beistrich ist werte aus ob num die gesuchte Zahl ist
+					if(num === randomNumber.toString()) { //randomNumber.toString() wandelt die Zahl in einen String um dass wir mit === vergleichen können
+						//treffer wie können die for schleife nun vorzeitig beenden
+						break; //break kann man benutzen um einen forschreife vorzeitig zu beenden
+						//alternativ könnte man hier auch einfach i = ziffern.length; schreiben um die for schleife vorzeitig zu beenden
+					} else {
+						num = ""; //Es was nicht die gesuchte Zahl. Lösche num und weiter gehts
+					}
+				}
+			}
+			if(num === randomNumber.toString()) { //statt randomNumber.toString() könnte man auch randomNumber + "" schreiben um eine Umwandlung zu String zu erreichen
+				console.log("Ja die Zahl " + randomNumber + " kommt im String " + ziffern + " vor");
+			} else {
+				console.log("Nein die Zahl " + randomNumber + " kommt im String " + ziffern + " nicht vor");
+			}
+
+
+
+			
+			//Eine Variante mit einem Array und der indexOf Funktion von Array 
+			var arr = ziffern.split(","); //wandelt den String in ein Array um anhand des Trennzeichens ,
+			if(arr.indexOf(randomNumber.toString()) !== -1) { //Achtung indexOf benutzt intern === um Elemente zu vergleichen daher müssen wir sicher stellen dass beides den gleichen Datentyp hat!
+				console.log("Ja die Zahl " + randomNumber + " kommt im String " + ziffern + " vor");
+			} else {
+				console.log("Nein die Zahl " + randomNumber + " kommt im String " + ziffern + " nicht vor");
+			}			
+
+
+		</script>
+	</body>
+</html>

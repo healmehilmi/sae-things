@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Wetter Prophet</title>
+		<link rel="stylesheet" type="text/css" href="res/make_it_look_nicer.css">
+	</head>
+	<body class="fancy_OFF">
+		<div class="background"></div>
+		<h1>Wetter Prophet</h1>
+		<button class="anzeigen_button">Anzeigen</button>
+		<div id="predictions">
+			
+			<!--
+			
+			Sinn dieser Übung ist es mit document.createElement document.setAttribute elm.appendChild umgehen zu lernen
+			Darum generieren wir das unten stehen auskommentiere Markup komplett via Javascirpt auch wenn innerHTML schneller gehen würde
+			
+			<div class="prediction">
+				<h2>Dienstag</h2>
+				<figure class="perdiction">
+					<img src="res/sonnig.png">
+					Sonnig
+				</figure>
+				<span class="temperature">12° C</span>
+				<ul class="list_of_3">
+					<li>10° C</li>
+					<li>12° C</li>
+					<li>9° C</li>
+				</ul>
+			</div>
+			-->
+			
+		</div>
+		<script>
+			
+			//Die Funktion wird erst aufgerufen wennn das Event onload des Fensters feuert
+			//Dies stellt sicher, dass bereits alles geladen ist bevor wir weiteren JS-Code ausführen 
+			window.onload = function(){
+				
+				//die möglichen Wetterzustände in ein Array gespeichert
+				var wetter = ["sonnig","bewölkt","gewitter","regen"];
+				
+				//die Wochentage in einem Array 
+				//Beginnent mit Sonntag weil die Mehtode getDay() 0 für Sonntag - 6 für Samstag returnt
+				var tage = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"];
+				
+				//ein Date Object mit dem heutigen Datum erzeugen
+				var heute = new Date();
+				
+				//unsere Funktion die eine Vorhersage generiert
+				var generateVorhersage = function(){	
+					
+					//generiert ein leers div das noch nicht im DOM-Tree eingehängt ist.
+					var box_div = document.createElement("div");
+					
+					//fügt dem div die CSS-Klasse prediction hinzu
+					box_div.setAttribute("class", "prediction");
+			
+					
+					//generiert ein h2 tag
+					var day_h2 = document.createElement("h2");
+					
+					//ermittelt den index des morgigen tages
+					//heute.getDay() gibt den heutigen Wochentag als 0 - 6 zurück wobei 0 Sonntag ist 1 Montag usw..
+					//(heute.getDay() + 1) entspricht also dem morgigen Wochentagsindex
+					//(heute.getDay() + 1) % 7 weil am Samstag wollen wir den Sonntag ausgeben der hat aber 0 als index 
+					var morgen = (heute.getDay() + 1) % 7;
+					
+					//fügt den morgigen Tag als text in das h2 element ein
+					day_h2.textContent = tage[morgen];
+					
+					//hängt das h2 als Kind an äußer div an
+					box_div.appendChild(day_h2);
+					
+					//figure tag erzeugen und CSS-Klasse setzten
+					var fig = document.createElement("figure");
+					fig.setAttribute("class", "perdiction");
+					box_div.appendChild(fig);
+					
+					
+					
+					//img element erzeugen
+					var img = document.createElement("img");
+					
+					//aus den 4 Wetterzuständen zufällig einen auswählen
+					//Math.random() erzeutgt eine zufällige Kommazahl zwischen 0.0 und 1 wobei 1 nie erreicht wird also max 0.9999....
+					//Math.random() * 4 erzeugt folglich eine zufällige Kommazahl zwischen 0.0 und 4
+					//Math.floor(Math.random() * 4) Math.floor() rundet immer ab 3.999... wird also auch 3 daher ergebn sich jetzt folgende mögliche Zahlen 0,1,2,3
+					var random_index = Math.floor(Math.random() * 4);
+					
+					//Bild URL setzten mit zufälligem wert aus den Array wetter das die möglichen Zustände enthält
+					img.setAttribute("src", "res/" + wetter[random_index] + ".png");
+					
+					//das img Tag als Child an das figure Element anhängen
+					fig.appendChild(img);
+					
+					var wettertext = wetter[random_index].charAt(0).toUpperCase() + wetter[random_index].substr(1);
+
+					//wetter[random_index] Text mit dem Wetterzustand
+					//wetter[random_index].charAt(0) der erste Buchstabe
+					//wetter[random_index].charAt(0).toUpperCase() der erste Buchstabe als Großbuchstabe
+					// + wetter[random_index].substr(1) der Wetterzustandtext ohne dem ersten Buchstaben
+
+					//Textnode mit Wetterzustandstext erzeugen
+					var text = document.createTextNode(wettertext);
+					
+					//den text im figure elment anhängen
+					fig.appendChild(text);
+					
+					//span generieren für den Temperatur text
+					var temp_span = document.createElement("span");
+					
+					//textinhalt den spans setzten
+					//wir wollen Zahlen zwischen -10 und +40 generieren
+					//Math.random() erzeugt eine zufällige Kommazahl zwischen 0.0 und 1 wobei 1 nie erreicht wird also max 0.9999....
+					//Math.random() * 50 durch multiplizieren mit 50 erweitern wir den Bereich auf 0.0 - 49.9999...
+					//(Math.random() * 50) - 10 durch anschließendes Subtrahieren verschieben wir den Bereich auf -10.0 - 39.9999....
+					//((Math.random() * 50) - 10).toFixed(1) rundet auf eine Kommastelle
+					temp_span.textContent = ((Math.random() * 50) - 10).toFixed(1) + "° C";
+					
+					//classe hinzufügen
+					temp_span.setAttribute("class", "temperature");
+				
+					//anhängen
+					box_div.appendChild(temp_span);	
+					
+					
+					
+					//ul generieren
+					var temp_ul = document.createElement("ul");
+					
+					//ul eine CSS-Klasse zusweisen
+					temp_ul.setAttribute("class", "list_of_3");
+					
+					//ul anhängen
+					box_div.appendChild(temp_ul);
+					
+					//3 li elemente mit zufälligen Temperaturtext genereieren
+					for(var i = 0; i < 3; i++) {
+						
+						//li erzeugen
+						var tmp_li = document.createElement("li");
+						
+						//text setzten wie oben 
+						tmp_li.textContent = ((Math.random() * 50) - 10).toFixed(0) + "° C";
+						
+						//li als Child im ul anhägen
+						temp_ul.appendChild(tmp_li);
+					}
+					
+					
+					//DOM-Element im aktiven DOM-Baum selectieren in das wir nun das erzeugte Konstrukt einhängen
+					var cnt_div = document.querySelector("#predictions");
+					
+					//den evt. bereits bestehenden Inhalt löschen
+					cnt_div.innerHTML = "";
+					
+					//und das äußer div in den Baum einhägen. Erst jetzt wird es vom Browser auch ausgegeben
+					cnt_div.appendChild(box_div);
+					
+				};
+				
+				//Alternative zu onclick="..." direkt im html tag
+				//Erst wird holen wir uns mit document.querySelector(".anzeigen_button") die Referenz zu dem Buttonelement
+				//Dann wird mit .addEventListener("click", generateVorhersage); die Eventhandlerfunktion für das event onclick hinzugefügt
+				document.querySelector(".anzeigen_button").addEventListener("click",generateVorhersage);
+			};
+			
+		</script>
+	</body>
+</html>

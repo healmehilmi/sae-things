@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="http://www.google.com/search" method="get" class="j-form">
+			<div class="j-error"></div>
+			Search: <input type="text" class="j-input" name="q"><input type="submit">
+		</form>
+		<script>
+			
+			window.addEventListener('load', function(){
+				
+				//binde einen eventlistener an das formular der bei abschicken das formulars überprüft ob in dem textinput ein text eingegeben wurde der nicht nur aus whitespace zeichen besteht
+				
+				//formular selectieren und referenz in eine variable speichern
+				var form = document.querySelector('.j-form');
+
+				//eventlistener hinzufügen
+				form.addEventListener('submit', function(_e){
+					//input selektieren
+					var input = document.querySelector('.j-input');
+					//inhalt auslesen
+					var text = input.value;
+
+					//ist das text input "leer" dann soll eine fehlermeldung in .j-error ausgegeben werden und das formular nicht abgeschickt werden (preventDefault)
+					
+					//mit trim leerzeichen entfernen
+					if(text.trim() === "") {
+						//wenn nichts überbleibt mit preventDefault abschicken verhindern
+						_e.preventDefault();
+						//fehler ausgeben
+						document.querySelector('.j-error').textContent = "Es muss ein Suchtext eingegeben werden!";
+					}
+					//seht in dem text input mehr als whitespace zeichen dann soll das formular abgeschickt werden (=> die google suche angezeigt werden)
+				
+					//wenn er nicht in das obere if rein kommt wird das formular automatisch abgeschickt
+
+				});
+			});
+		</script>
+	</body>
+</html>

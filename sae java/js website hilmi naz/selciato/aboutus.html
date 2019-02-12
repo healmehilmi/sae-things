@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta lang="EN">
+    <meta name="viewport" content="width=devices-width , initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta name="description" content="Scroll to top">
+    <meta name="author" content="SitePoint">
+    <title>SELCIATO</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+    <link rel="stylesheet" href="aboutus.css">
+
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="site-nav">
+            <div class="up-nav">
+                <img class="site-logo" src="bilder/logooo.png" alt="">
+
+                <ul class="top-header">
+
+                    <li>
+                        <img src="bilder/search.png" alt="">
+                    </li>
+                    <li>
+                        <a href="#">EN|DE</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="down_nav">
+                <ul class="navilist j-nav j-nav-active">
+                    <li> <a href="main.html">PROJECTS</a></li> 
+                    <li>  <a href="aboutus.html">ABOUT US</a></li>
+                    <li>  <a href="contactus.html">CONTACT US</a></li>
+                    <li>  <a href="#">METERIAL</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <section class="aboutus_heading">
+            <div class="header-text">
+                <h3>Our Futuristic Selciato Team</h3>
+            </div>
+          
+            
+                <ul class="sidebar accordion">
+                    <li class="accordion__item">
+                        
+                            <img src="bilder2/man1.png" alt="">
+
+                            <div class="accordion__content">
+                                <div class="accordion_tex_box">
+                        
+                                 <p>XXX YY <br>Head Meterial Designer </p>
+                                </div>
+                            </div>
+                                </li>
+
+                    <li class="accordion__item">
+                        
+                            <img src="bilder2/man2.png" alt="">
+
+                            <div class="accordion__content">
+                                <div class="accordion_tex_box">
+                        
+                                        <p>XXX YY <br>Head Arcitect </p>                                </div>
+                            </div>
+                                </li>
+                     <li class="accordion__item">
+                        
+                            <img src="bilder2/frau1.png" alt="">
+
+                            <div class="accordion__content">
+                                <div class="accordion_tex_box">
+                        
+                                        <p>XXX YY <br>Branding Manager </p>                                </div>
+                            </div>
+                                </li>
+                    <li class="accordion__item">
+                        
+                            <img src="bilder2/frau2.png" alt="">
+
+                            <div class="accordion__content">
+                                <div class="accordion_tex_box">
+                        
+                                        <p>XXX YY <br>Art Director </p>                                </div>
+                            </div>
+                                </li>
+         
+           
+
+                </ul>
+            
+
+            
+
+
+        </section>
+
+
+        <footer>
+            <div class="footer">
+                <div class="left_list">
+                    <ul class="left_footer_list">
+                        <li>
+                            <a href="#">JOBS</a>
+                        </li>
+                        <li>
+                            <a href="#">IMPRESSUM</a>
+                        </li>
+                        <li>
+                            <a href="#">FOLLOW US</a>
+                        </li>
+                        <li>
+                            <img src="bilder/pinterest.png" alt="">
+                            <img src="bilder/instagram-2.png" alt=""> </li>
+                    </ul>
+                </div>
+                <div class="right_list">
+
+                    <ul class="right_footer_list">
+
+                        <li>
+                            <img src="bilder/call.png" alt=""> </li>
+                        <li>
+                            <a href="#">+43681817188</a>
+                        </li>
+                        <li>
+                            <img src="bilder/mail.png" alt=""> </li>
+                        <li>
+                            <a href="#">email@selciato.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        <script>
+
+
+           
+
+           
+          
+            
+        ////////////////////////////x/x////x/x/x/x/x//x/x/x/x///////x/x
+
+
+		window.addEventListener('load', function(){
+			var accordion_items = document.querySelectorAll('.accordion__item');
+			for(var i = 0; i < accordion_items.length; i++) {
+				var img = accordion_items[i].querySelector('.accordion__item > img');
+				img.addEventListener('click', function(_e){
+					var accordion_items_of_same_accordion = _e.target.parentNode.parentNode.children;
+					for(var i = 0; i < accordion_items_of_same_accordion.length; i++) {
+						accordion_items_of_same_accordion[i].classList.remove('accordion__item--open');
+					}
+					_e.target.parentNode.classList.add('accordion__item--open');
+				});
+			}
+			
+		
+			var alle_first_items = document.querySelectorAll('.accordion > .accordion__item:first-child');
+			for(var i = 0; i < alle_first_items.length; i++) {
+				alle_first_items[i].querySelector('img').dispatchEvent(new Event('click'));
+			}
+			
+		});
+
+	window.addEventListener('scroll', function(){
+			var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			if(prev_post !== null) {
+				
+				if(prev_post < scrollTop) {
+					
+					if(scrollanimation !== null) {
+						clearInterval(scrollanimation);
+					}
+				}
+			}
+			
+			prev_post = scrollTop;
+		});
+		
+		window.addEventListener('scroll', function(){
+			
+			var sticky_pos = document.querySelector('.j-nav').offsetTop;
+			
+			var scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			if(scrollTop > sticky_pos) {
+				document.querySelector('body').setAttribute('class','state--nav-sticky');
+			} else {
+				document.querySelector('body').setAttribute('class','');
+			}
+		});
+
+
+        </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

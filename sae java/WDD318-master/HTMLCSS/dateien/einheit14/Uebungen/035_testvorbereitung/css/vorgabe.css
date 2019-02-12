@@ -1,0 +1,144 @@
+/* #### Allgemein #### */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	/* TODO:
+		Schriftart 'Gudea' (siehe Ende des Dokuments für @font-face) mit Fallback Standard serifenlose Schrift einbinden
+		Zeilenhöhe 1.4
+	*/
+	background: rgb(233, 233, 233);
+	
+	color: #333;
+
+	padding-top: 94px;
+	margin: 0;
+}
+
+p {
+	margin-top: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+/* TODO:
+	Schriftfarbe bei allen Links RGB: 251, 81, 84 mit 80% Deckkraft
+*/
+
+/* TODO:
+	Links bei hover keine Unterstreichung
+*/
+
+
+/* #### Header #### */
+
+.site-header {
+	/* TODO:
+		Element links oben im Browser positionieren
+		Es soll sich nicht mitbewegen, wenn gescrolled wird
+	*/
+	background: #fff;
+	width: 100%;
+}
+
+.site-header h1 {
+	/* TODO:
+		Breite 90%
+		Element zentrieren
+		Außenabstand: Oben und Unten 10px;
+	*/
+}
+
+
+
+/* #### Spalten #### */
+
+.favs {
+	/* TODO:
+		Spalten nebeneinander darstellen
+	*/
+}
+
+.col {
+	/* TODO:
+		Außenabstand nach rechts 2%
+	*/
+	width: 25%;
+}
+
+/* TODO:
+	Letzte Spalte selektieren und Außenabstand entfernen
+*/
+
+
+/* #### Artikel #### */
+
+article {
+	/* TODO:
+		abgerundete Ecken (6px)
+		Hintergrundfarbe weiß
+		Innenabstand nach unten 8px
+		Außenabstand nach unten 20px
+	*/
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+}
+
+article h2 {
+	/* TODO:
+		Hintergrundfarbe RGB: 251, 81, 84 mit 90% Deckkraft
+		Innenabstand links und rechts 10px, oben und unten 4px
+		Außenabstand 0
+		Schriftfarbe #F9E8E8
+		Titel links oben absolut positionieren relativ zum Elternelement 
+	*/
+	width: 100%;
+
+	font-weight: 400;
+	font-size: 20px;
+
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+}
+
+article img {
+	width: 100%;
+
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+}
+
+article p {
+	padding: 2px 10px;
+}
+
+
+
+/* #### Sonstiges #### */
+
+.wrapper {
+	/* TODO:
+		90% Breite
+		zentrieren
+	*/
+}
+
+.clearfix:after {
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+	content: "";
+}
+
+@font-face {
+    font-family: 'gudearegular';
+    src: url('../fonts/gudea-regular-webfont.woff2') format('woff2'),
+         url('../fonts/gudea-regular-webfont.woff') format('woff'),
+         url('../fonts/gudea-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

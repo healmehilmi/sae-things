@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Wiederholung</title>
+  </head>
+
+  <body>
+
+    <form action="#">
+      <label for="farben">Farben:</label>
+      <select id="farben">
+        <option>Rot</option>
+        <option selected>Blau</option>
+        <option>Grün</option>
+      </select>
+
+      <div>
+        <label for="farben2">Farben2:</label>
+        <select id="farben2" size="7" multiple>
+          <option>Rot</option>
+          <option selected>Blau</option>
+          <option>Grün</option>
+          <option>Grün</option>
+          <option>Grün</option>
+          <option>Grün</option>
+          <option>Grün</option>
+          <option>Grün</option>
+        </select>
+      </div>
+
+      <div>
+        <div>
+          <input type="radio" name="smoker" id="raucher" /> 
+          <label for="raucher">Raucher</label>
+        </div>
+        <div>
+          <input type="radio" name="smoker" id="nicht-raucher" checked /> 
+          <label for="nicht-raucher">Nicht-Raucher</label>
+        </div>
+      </div>
+
+      <div>
+        <input type="checkbox" name="smoker" id="newsletter" checked /> 
+        <label for="newsletter">newsletter</label>
+      </div>
+
+      <fieldset>
+      <legend>Sprachen:</legend>
+        <div>
+          <input type="checkbox" name="lang" id="deutsch" /> 
+          <label for="deutsch">deutsch</label>
+        </div>
+        <div>
+          <input type="checkbox" name="lang" id="englisch" /> 
+          <label for="englisch">englisch</label>
+        </div>
+        <div>
+          <input type="checkbox" name="lang" id="kroatisch" /> 
+          <label for="kroatisch">kroatisch</label>
+        </div>
+      </fieldset>
+
+      <input type="submit" value="Absenden"><br />
+      <button type="submit">Absenden</button><br />
+      <button type="reset">Eingaben zurücksetzen</button><br />
+      <button><img src="burger.svg" alt="Menü"></button><br />
+      <button>Menü</button><br />
+
+    </form>
+
+  </body>
+</html>
